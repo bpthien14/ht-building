@@ -1,42 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@font-face {
+  font-family: 'Arima';
+  src: url('/fonts/Arima-Regular.ttf') format('truetype');
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: 0 0% 100%; /* White */
+  --foreground: 220 10% 25%; /* Dark Gray for text */
+  --card: 0 0% 100%;
+  --card-foreground: 220 10% 25%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 220 10% 25%;
+  --primary: 220 35% 28%;
+  --primary-foreground: #FF0000;
+  --secondary: 220 30% 96%;
+  --secondary-foreground: 220 35% 25%;
+  --muted: 220 20% 90%;
+  --muted-foreground: 220 10% 50%;
+  --accent: 220 45% 50%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 220 20% 88%;
+  --input: 220 20% 94%;
+  --ring: 220 45% 50%;
+  --radius: 0.5rem;
+
+  /* Biến màu cho sidebar */
+  --sidebar-background: 231 48% 98%;
+  --sidebar-foreground: 231 30% 25%;
+  --sidebar-primary: 231 48% 48%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 231 48% 90%;
+  --sidebar-accent-foreground: 231 48% 28%;
+  --sidebar-border: 231 30% 85%;
+  --sidebar-ring: 231 48% 48%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+    --background: 220 15% 10%;
+    --foreground: 220 20% 90%;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
+
+
