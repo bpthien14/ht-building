@@ -13,11 +13,11 @@ const HeroSection = () => {
           className="object-cover object-top"
           priority
         />
-        <div className="absolute inset-0 bg-white/50"></div> {/* Changed overlay to bg-black/50 */}
+        <div className="absolute inset-0 bg-gradient-to-t from-white/90 to-white/20"></div>
       </div>
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-48">
         <h1 
-          className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight"
+          className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight"
           style={{ fontFamily: 'var(--font-montserrat)', letterSpacing: '0.05em' }}
         >
           H&amp;T BUILDING
@@ -29,7 +29,7 @@ const HeroSection = () => {
           VĂN PHÒNG CHO THUÊ <br /> TẠI LONG XUYÊN
         </p>
         <p 
-          className="mt-6 max-w-xl text-lg sm:text-xl text-[#161616]/90"
+          className="mt-6 max-w-xl text-lg sm:text-xl text-[#182640]/90 font-bold"
           style={{ fontFamily: 'var(--font-montserrat)' }}
         >
           Vị trí đắc địa - Diện tích linh hoạt - Giá thuê hợp lý

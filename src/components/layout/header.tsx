@@ -12,9 +12,9 @@ const NavLinks = [
 const Header = () => {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-[#323a48]/40 bg-[#323a48] text-[#f8f1e9] shadow-md">
-      <div className="container mx-auto flex flex-col items-center gap-6 py-8 max-w-screen-xl px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto flex flex-col items-center gap-6 pt-8 pb-4 max-w-screen-xl px-4 sm:px-6 lg:px-8">
         <Logo />
-        <nav className="hidden md:flex items-center space-x-16">
+        <nav className="hidden md:flex items-center space-x-16 mt-1">
           {NavLinks.map((link) => (
             <Link
               key={link.href}
