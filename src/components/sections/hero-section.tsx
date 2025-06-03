@@ -13,7 +13,7 @@ const HeroSection = () => {
           className="object-cover object-top"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-white/90 to-white/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-white/100 to-white/20"></div>
       </div>
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-48">
         <h1 

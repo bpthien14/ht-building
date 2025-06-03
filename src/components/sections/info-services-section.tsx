@@ -36,7 +36,7 @@ const InfoItem = ({ IconComponent, label, value }: { IconComponent: React.Elemen
 
 const InfoServicesSection = () => {
   return (
-    <section id="info-services" className="py-16 md:py-24 bg-gray-50">
+    <section id="info-services" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
           {/* THÔNG SỐ TÒA NHÀ */}
@@ -44,7 +44,7 @@ const InfoServicesSection = () => {
             <h3 className="text-2xl sm:text-2xl font-bold text-white bg-slate-800 p-4 rounded-t-md text-center" style={{ fontFamily: 'var(--font-montserrat)' }}>
               THÔNG SỐ TÒA NHÀ
             </h3>
-            <div className="bg-gray-50 p-6 rounded-b-md">
+            <div className="bg-background p-6 rounded-b-md">
               <ul className="space-y-5">
                 {buildingInfoData.map((item) => (
                   <InfoItem key={item.label} IconComponent={item.icon} label={item.label} value={item.value} />
@@ -55,10 +55,10 @@ const InfoServicesSection = () => {
 
           {/* GIÁ VÀ CHI PHÍ DỊCH VỤ */}
           <div>
-            <h3 className="text-2xl sm:text-2xl font-bold text-white bg-slate-600 p-4 rounded-t-md text-center" style={{ fontFamily: 'var(--font-montserrat)' }}>
+            <h3 className="text-2xl sm:text-2xl font-bold text-white bg-[#4A4B4C] p-4 rounded-t-md text-center" style={{ fontFamily: 'var(--font-montserrat)' }}>
               GIÁ VÀ CHI PHÍ DỊCH VỤ
             </h3>
-            <div className="bg-gray-50 p-6 rounded-b-md">
+            <div className="bg-background p-6 rounded-b-md">
               <ul className="space-y-5">
                 {serviceCostsData.map((item) => (
                   <InfoItem key={item.label} IconComponent={item.icon} label={item.label} value={item.value} />

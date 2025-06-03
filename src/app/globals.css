@@ -48,6 +48,37 @@
     --foreground: 220 20% 90%;
 }
 
+/* Custom styles for the speech bubble tail */
+.speech-bubble-left-panel {
+  position: relative; /* Ensures ::after is positioned relative to this element */
+}
+
+.speech-bubble-left-panel::after {
+  content: '';
+  position: absolute;
+  width: 30px;   /* Width of the tail's base */
+  height: 35px;  /* Height of the tail's base, making it a bit longer */
+  background: #2F3748; /* Must match the UICard background */
+  z-index: -1;   /* Places the tail behind the card's content */
+
+  /* Positioning the tail */
+  /* UICard has rounded-lg (0.5rem = 8px). The tail should look like it flows from the bottom-right. */
+  right: 12px;  /* Adjust to position horizontally. Starts from card's right edge, moving inwards. */
+  bottom: -14px; /* Adjust to position vertically. Extends downwards from card's bottom edge. */
+
+  /* Shaping the tail with border-radius and transform */
+  /* TL, TR, BR, BL. We want a rounded tip (BR) and a soft connection (TL). */
+  border-radius: 8px 0 20px 0;
+  /* TL: 8px helps to blend with the card's rounded corner after skewing. */
+  /* TR: 0 for a sharper edge if needed, or small radius. */
+  /* BR: 20px for a pronounced, rounded tip of the tail. */
+  /* BL: 0 for a sharper edge if needed. */
+
+  /* Skew transform to get the desired angle and shape */
+  transform: skewX(-30deg) skewY(10deg);
+  transform-origin: top left; /* The skew operations are relative to this origin */
+}
+
 
 
 

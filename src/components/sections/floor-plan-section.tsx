@@ -1,48 +1,21 @@
 "use client";
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Button as UIButton } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Maximize2, LayoutGrid } from 'lucide-react';
+import { floorPlansData, FloorPlanDataType } from '@/data/floorPlansData';
+import React from 'react';
+
+interface DetailListItem {
+  icon?: React.ElementType;
+  label: string;
+  value: string;
+}
 
 const FloorPlanSection = () => {
-  const floorPlans = [
-    {
-      tabValue: "tang-2-4",
-      tabLabel: "Tầng 2 - 4",
-      status: "Còn Trống",
-      title: "MẶT BẰNG TẦNG 2-4",
-      area: { icon: Maximize2, label: "Diện Tích Cho Thuê", value: "485m²" },
-      subdivision: { icon: LayoutGrid, label: "Diện Tích Phân Khu", value: "47 - 124 - 148m²" },
-      imageSrc: "/images/BV-tang24.png",
-      imageAlt: "Bản vẽ mặt bằng tầng 2-4",
-      aiHint: "architectural floor plan"
-    },
-    {
-      tabValue: "tang-5",
-      tabLabel: "Tầng 5",
-      status: "Còn Trống",
-      title: "MẶT BẰNG TẦNG 5",
-      area: { icon: Maximize2, label: "Diện Tích Cho Thuê", value: "485m²" },
-      subdivision: { icon: LayoutGrid, label: "Diện Tích Phân Khu", value: "Theo yêu cầu" },
-      imageSrc: "/images/BV-tang5.png",
-      imageAlt: "Bản vẽ mặt bằng tầng 5",
-      aiHint: "office layout blueprint"
-    },
-    {
-      tabValue: "tang-6",
-      tabLabel: "Tầng 6",
-      status: "Còn Trống",
-      title: "MẶT BẰNG TẦNG 6",
-      area: { icon: Maximize2, label: "Diện Tích Cho Thuê", value: "485m²" },
-      subdivision: { icon: LayoutGrid, label: "Diện Tích Phân Khu", value: "Theo yêu cầu" },
-      imageSrc: "/images/BV-tang6.png",
-      imageAlt: "Bản vẽ mặt bằng tầng 6",
-      aiHint: "top floor plan"
-    },
-  ];
+  const currentFloorPlans: FloorPlanDataType[] = floorPlansData;
 
   return (
     <section id="floor-plan" className="py-16 md:py-24 bg-white" style={{ fontFamily: 'var(--font-montserrat)' }}>
@@ -52,12 +25,12 @@ const FloorPlanSection = () => {
             Mặt Bằng Cho Thuê
           </h2>
         </div>
-        <Tabs defaultValue={floorPlans[0].tabValue} className="w-full">
+        <Tabs defaultValue={currentFloorPlans && currentFloorPlans.length > 0 ? currentFloorPlans[0].tabValue : undefined} className="w-full">
           <TabsList 
             className="grid items-center mx-auto mb-12 max-w-xl p-1.5 rounded-xl" 
-            style={{ gridTemplateColumns: '1fr auto 1fr auto 1fr' }} 
+            style={{ gridTemplateColumns: `repeat(${(currentFloorPlans?.length || 0) * 2 - 1}, auto)` }}
           >
-            {floorPlans.flatMap((plan, index) => {
+            {(currentFloorPlans || []).flatMap((plan: FloorPlanDataType, index: number) => {
               const trigger = (
                 <TabsTrigger 
                   key={plan.tabValue} 
@@ -71,7 +44,7 @@ const FloorPlanSection = () => {
                   </div>
                 </TabsTrigger>
               );
-              if (index < floorPlans.length - 1) {
+              if (index < (currentFloorPlans?.length || 0) - 1) {
                 const divider = <div key={`divider-${index}`} className="w-px pl-1 mx-2 h-3/4 bg-black self-center"></div>;
                 return [trigger, divider];
               }
@@ -80,48 +53,64 @@ const FloorPlanSection = () => {
           </TabsList>
           
           <div className="relative">
-            {floorPlans.map(plan => (
-              <TabsContent 
-                forceMount
-                key={plan.tabValue} 
-                value={plan.tabValue}
-                className="focus-visible:outline-none transition-all duration-300 ease-in-out data-[state=inactive]:opacity-0 data-[state=inactive]:hidden data-[state=active]:opacity-100"
-              >
-                <div className="grid md:grid-cols-2 gap-x-8 gap-y-6 md:gap-x-10 items-start pt-8 w-5/6 ml-auto">                  <div className="flex flex-col items-start">
-                    <Badge className="bg-slate-700 hover:bg-slate-700 text-white px-4 py-1.5 text-lg font-semibold rounded-md mb-5" style={{ fontFamily: 'var(--font-montserrat)' }}>
-                      {plan.status}
-                    </Badge>
-                    <h3 className="text-4xl font-semibold text-slate-800 mb-6" style={{ fontFamily: 'var(--font-montserrat)' }}>
-                      {plan.title}
-                    </h3>
-                    <div className="space-y-5 mb-8 w-full">
-                      {[plan.area, plan.subdivision].map(item => (
-                        <div key={item.label} className="flex items-start text-slate-700">
-                          <item.icon className="h-7 w-7 mr-5 text-slate-500 flex-shrink-0 mt-1" />
-                          <div>
-                            <p className="text-xl text-slate-600" style={{ fontFamily: 'var(--font-montserrat)' }}>{item.label}</p>
-                            <p className="font-bold text-2xl text-slate-800" style={{ fontFamily: 'var(--font-montserrat)' }}>{item.value}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                    <Button className="bg-slate-700 hover:bg-slate-800 text-white px-8 py-8 text-xl font-semibold rounded-md shadow-sm transition-colors duration-300 mt-8 ml-20" style={{ fontFamily: 'var(--font-montserrat)' }}>
-                      Xem Chi Tiết
-                    </Button>
-                  </div>
+            {(currentFloorPlans || []).map((plan: FloorPlanDataType) => {
+              const displayItems: DetailListItem[] = [];
+              if (plan.area) {
+                displayItems.push({ icon: plan.area.icon, label: plan.area.label, value: plan.area.value });
+              }
+              if (plan.subdivision) {
+                displayItems.push({ icon: plan.subdivision.icon, label: plan.subdivision.label, value: plan.subdivision.value });
+              }
+              if (plan.price) {
+                displayItems.push({ label: plan.price.label, value: plan.price.value });
+              }
 
-                  <div className="relative aspect-[4/5] w-full mx-auto bg-white p-3 sm:p-4 rounded-lg border border-slate-200 shadow-sm">
-                    <Image
-                      src={plan.imageSrc}
-                      alt={plan.imageAlt}
-                      data-ai-hint={plan.aiHint}
-                      fill
-                      className="object-contain" 
-                    />
+              return (
+                <TabsContent 
+                  forceMount
+                  key={plan.tabValue} 
+                  value={plan.tabValue}
+                  className="focus-visible:outline-none transition-all duration-300 ease-in-out data-[state=inactive]:opacity-0 data-[state=inactive]:hidden data-[state=active]:opacity-100 ml-50"
+                >
+                  <div className="grid md:grid-cols-2 gap-x-8 gap-y-6 md:gap-x-10 items-start pt-8 w-5/6">
+                    <div className="flex flex-col items-start">
+                      <Badge className="bg-slate-700 hover:bg-slate-700 text-white px-4 py-1.5 text-lg font-semibold rounded-md mb-5" style={{ fontFamily: 'var(--font-montserrat)' }}>
+                        {plan.status}
+                      </Badge>
+                      <h3 className="text-4xl font-semibold text-slate-800 mb-6" style={{ fontFamily: 'var(--font-montserrat)' }}>
+                        {plan.title}
+                      </h3>
+                      <div className="space-y-5 mb-8 w-full">
+                        {displayItems.map((item) => (
+                          <div key={item.label} className="flex items-start text-slate-700">
+                            {item.icon && <item.icon className="h-7 w-7 mr-5 text-slate-500 flex-shrink-0 mt-1" />}
+                            <div className={!item.icon ? 'ml-[calc(theme(spacing.7)_+_theme(spacing.5))]' : ''}>
+                              <p className="text-xl text-slate-600" style={{ fontFamily: 'var(--font-montserrat)' }}>{item.label}</p>
+                              <p className="font-bold text-2xl text-slate-800" style={{ fontFamily: 'var(--font-montserrat)' }}>{item.value}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                      <Link href={`/mat-bang/${plan.tabValue}`} passHref legacyBehavior>
+                        <a className="bg-slate-700 hover:bg-slate-800 text-white px-8 py-4 text-xl font-semibold rounded-md shadow-sm transition-colors duration-300 mt-8 ml-20 inline-block text-center" style={{ fontFamily: 'var(--font-montserrat)' }}>
+                          Xem Chi Tiết
+                        </a>
+                      </Link>
+                    </div>
+
+                    <div className="relative aspect-[4/5] w-full mx-auto bg-white p-3 sm:p-4 rounded-lg border border-slate-200 shadow-sm">
+                      <Image
+                        src={plan.imageSrc}
+                        alt={plan.imageAlt}
+                        data-ai-hint={plan.aiHint}
+                        fill
+                        className="object-contain" 
+                      />
+                    </div>
                   </div>
-                </div>
-              </TabsContent>
-            ))}
+                </TabsContent>
+              );
+            })}
           </div>
         </Tabs>
       </div>
