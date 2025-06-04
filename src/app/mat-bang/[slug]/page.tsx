@@ -22,6 +22,7 @@ interface FloorPlanDetailProps {
   params: {
     slug: string;
   };
+  searchParams?: { [key: string]: string | string[] | undefined };
 }
 
 const FloorPlanDetailPage = ({ params }: FloorPlanDetailProps) => {
