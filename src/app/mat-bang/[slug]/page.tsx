@@ -19,10 +19,8 @@ type ItemWithoutIcon = { label: string; value: string };
 type FloorPlanItem = ItemWithIcon | ItemWithoutIcon;
 
 interface FloorPlanDetailProps {
-  params: {
-    slug: string;
-  };
-  searchParams?: { [key: string]: string | string[] | undefined };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  params: any;
 }
 
 const FloorPlanDetailPage = ({ params }: FloorPlanDetailProps) => {
