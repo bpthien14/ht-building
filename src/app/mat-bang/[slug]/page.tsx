@@ -1,21 +1,23 @@
 'use client';
 
+import React from 'react';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
-import { floorPlansData, FloorPlanDataType, SubSectionType } from '@/data/floorPlansData'; // Điều chỉnh đường dẫn nếu cần
+import { floorPlansData } from '@/data/floorPlansData'; // Điều chỉnh đường dẫn nếu cần
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { DollarSign } from 'lucide-react'; // Icon cho giá
+import { DollarSign, LucideIcon } from 'lucide-react'; // Icon cho giá
 
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Button as UIButton } from '@/components/ui/button';
-import { Card as UICard } from '@/components/ui/card';
 import ContactSection from '@/components/sections/contact-section';
+
+// Type để xử lý các item có hoặc không có icon
+type ItemWithIcon = { icon: LucideIcon; label: string; value: string };
+type ItemWithoutIcon = { label: string; value: string };
+type FloorPlanItem = ItemWithIcon | ItemWithoutIcon;
+
 interface FloorPlanDetailProps {
   params: {
     slug: string;
@@ -25,6 +27,11 @@ interface FloorPlanDetailProps {
 const FloorPlanDetailPage = ({ params }: FloorPlanDetailProps) => {
   const { slug } = params;
   const plan = floorPlansData.find(p => p.tabValue === slug);
+
+  // Helper function để kiểm tra item có icon hay không
+  const hasIcon = (item: FloorPlanItem): item is ItemWithIcon => {
+    return 'icon' in item;
+  };
 
   if (!plan) {
     return (
@@ -54,8 +61,6 @@ const FloorPlanDetailPage = ({ params }: FloorPlanDetailProps) => {
         {/* Section 1: Hero Title */}
         <section 
           className="py-20 md:py-28 bg-slate-100 text-center bg-cover bg-center"
-          // Giả sử có hình nền cho hero, nếu không thì dùng màu nền
-          // style={{ backgroundImage: `url(${plan.heroImageSrc || '/images/default-hero-bg.jpg'})` }}
         >
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-800 tracking-tight">
@@ -83,12 +88,17 @@ const FloorPlanDetailPage = ({ params }: FloorPlanDetailProps) => {
                 <h2 className="text-3xl sm:text-4xl font-semibold text-slate-800 mb-6">
                   {plan.title}
                 </h2>
+
                 <div className="space-y-5 mb-8 w-full text-lg">
                   {[plan.area, plan.subdivision, plan.price].map(item => (
                     item && (
                       <div key={item.label} className="flex items-start text-slate-700">
-                        {item.icon ? <item.icon className="h-6 w-6 mr-4 text-slate-500 flex-shrink-0 mt-1" /> 
-                                   : <DollarSign className="h-6 w-6 mr-4 text-slate-500 flex-shrink-0 mt-1" />}
+                        {hasIcon(item) 
+                          ? React.createElement(item.icon, {
+                              className: "h-6 w-6 mr-4 text-slate-500 flex-shrink-0 mt-1"
+                            })
+                          : <DollarSign className="h-6 w-6 mr-4 text-slate-500 flex-shrink-0 mt-1" />
+                        }
                         <div>
                           <p className="text-slate-600">{item.label}</p>
                           <p className="font-bold text-xl text-slate-800">{item.value}</p>
@@ -162,4 +172,4 @@ const FloorPlanDetailPage = ({ params }: FloorPlanDetailProps) => {
   );
 };
 
-export default FloorPlanDetailPage; 
+export default FloorPlanDetailPage;

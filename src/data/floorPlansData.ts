@@ -1,4 +1,5 @@
 import { Maximize2, LayoutGrid } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 export const floorPlansData = [
   {
@@ -89,12 +90,12 @@ export type FloorPlanDataType = {
   status: string;
   title: string;
   heroTitle: string;
-  area: { icon: any; label: string; value: string }; // 'any' for Lucide icon component
-  subdivision: { icon: any; label: string; value: string };
+  area: { icon: LucideIcon; label: string; value: string };
+  subdivision: { icon: LucideIcon; label: string; value: string };
   price: { label: string; value: string };
   description?: string;
   imageSrc: string;
   imageAlt: string;
   aiHint?: string;
   subSections?: SubSectionType[];
-}; 
+};
