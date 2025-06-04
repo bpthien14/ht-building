@@ -10,8 +10,6 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { DollarSign } from 'lucide-react'; // Icon cho giá
 
-// Sao chép hoặc import khối liên hệ từ trang chủ (page.tsx)
-// Để đơn giản, tôi sẽ định nghĩa lại một phần ở đây, bạn nên cân nhắc tạo component riêng
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
@@ -30,6 +28,7 @@ const FloorPlanDetailPage = ({ params }: FloorPlanDetailProps) => {
 
   if (!plan) {
     return (
+      
       <div className="flex flex-col min-h-screen bg-background items-center justify-center">
         <Header />
         <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center">
@@ -45,43 +44,10 @@ const FloorPlanDetailPage = ({ params }: FloorPlanDetailProps) => {
     );
   }
 
-  // Component Contact Form nhỏ (tái sử dụng từ page.tsx)
-  const ContactFormSection = () => (
-    <div className="md:col-span-7 lg:col-span-7" style={{ fontFamily: 'var(--font-montserrat)' }}>
-      <UICard className="p-6 sm:p-8 lg:p-10 shadow-none border-none bg-background">
-        <form className="space-y-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="space-y-1.5">
-              <Label htmlFor="name" className="font-medium text-3A3C40">Họ & Tên</Label>
-              <Input type="text" name="name" id="name" placeholder="Jane" className="bg-white border border-gray-300" />
-            </div>
-            <div className="space-y-1.5">
-              <Label htmlFor="phone" className="font-medium text-3A3C40">Số Điện Thoại</Label>
-              <Input type="tel" name="phone" id="phone" placeholder="Smitherton" className="bg-white border border-gray-300" />
-            </div>
-          </div>
-          <div className="space-y-1.5">
-            <Label htmlFor="email" className="font-medium text-3A3C40">Email</Label>
-            <Input type="email" name="email" id="email" placeholder="email@janesfakedomain.net" className="bg-white border border-gray-300" />
-          </div>
-          <div className="space-y-1.5">
-            <Label htmlFor="message" className="font-medium text-3A3C40">Nội Dung</Label>
-            <Textarea name="message" id="message" rows={4} placeholder="Enter your question or message" className="bg-white border border-gray-300" />
-          </div>
-          <div>
-            <UIButton 
-              type="submit" 
-              className="w-full bg-black text-white hover:bg-gray-800 py-6 text-base font-semibold rounded-lg"
-            >
-              Submit
-            </UIButton>
-          </div>
-        </form>
-      </UICard>
-    </div>
-  );
+  <ContactSection/>
 
   return (
+    
     <div className="flex flex-col min-h-screen bg-background" style={{ fontFamily: 'var(--font-montserrat)' }}>
       <Header />
       <main className="flex-grow">
@@ -103,6 +69,7 @@ const FloorPlanDetailPage = ({ params }: FloorPlanDetailProps) => {
             </Button>
           </div>
         </section>
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section 2: Floor Plan Details */}
         <section className="py-16 md:py-24 bg-white">
@@ -187,8 +154,9 @@ const FloorPlanDetailPage = ({ params }: FloorPlanDetailProps) => {
 
         {/* Section 4: Contact Form (Reused/Adapted from homepage) */}
         <ContactSection />
-
+      </div>
       </main>
+      
       <Footer />
     </div>
   );
