@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
-import Logo from './logo';
 
 interface NavLink {
     href: Route | URL;
