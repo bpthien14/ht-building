@@ -28,20 +28,20 @@ const InfoItem = ({ IconComponent, label, value }: { IconComponent: React.Elemen
   <li className="flex items-start">
     <IconComponent className="h-12 w-12 mr-4 text-slate-600 flex-shrink-0 mt-1" />
     <div>
-      <p className="font-bold text-xl text-slate-800" style={{ fontFamily: 'var(--font-montserrat)' }}>{label}</p>
-      <p className="font-medium text-lg text-slate-600" style={{ fontFamily: 'var(--font-montserrat)' }}>{value}</p>
+      <p className="font-bold text-xl text-slate-800">{label}</p>
+      <p className="font-medium text-lg text-slate-600">{value}</p>
     </div>
   </li>
 );
 
 const InfoServicesSection = () => {
   return (
-    <section id="info-services" className="py-16 md:py-24 bg-background">
+    <section id="info-services" className="py-16 md:py-24 bg-background" style={{ fontFamily: 'var(--font-montserrat)' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
           {/* THÔNG SỐ TÒA NHÀ */}
           <div>
-            <h3 className="text-2xl sm:text-2xl font-bold text-white bg-slate-800 p-4 rounded-t-md text-center" style={{ fontFamily: 'var(--font-montserrat)' }}>
+            <h3 className="text-2xl sm:text-2xl font-bold text-white bg-slate-800 p-4 rounded-t-md text-center">
               THÔNG SỐ TÒA NHÀ
             </h3>
             <div className="bg-background p-6 rounded-b-md">
@@ -55,7 +55,7 @@ const InfoServicesSection = () => {
 
           {/* GIÁ VÀ CHI PHÍ DỊCH VỤ */}
           <div>
-            <h3 className="text-2xl sm:text-2xl font-bold text-white bg-[#4A4B4C] p-4 rounded-t-md text-center" style={{ fontFamily: 'var(--font-montserrat)' }}>
+            <h3 className="text-2xl sm:text-2xl font-bold text-white bg-[#4A4B4C] p-4 rounded-t-md text-center">
               GIÁ VÀ CHI PHÍ DỊCH VỤ
             </h3>
             <div className="bg-background p-6 rounded-b-md">
