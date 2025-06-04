@@ -109,9 +109,10 @@ const FloorPlanDetailPage = ({ params }: FloorPlanDetailProps) => {
                     ))}
                   </div>
                   {plan.description && (
-                    <p className="text-slate-600 leading-relaxed mb-8">
-                      {plan.description}
-                    </p>
+                    <p 
+                      className="text-slate-600 leading-relaxed mb-8"
+                      dangerouslySetInnerHTML={{ __html: plan.description }}
+                    />
                   )}
                 </div>
 

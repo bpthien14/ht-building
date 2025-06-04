@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Logo from './logo'; // Will display "H&T BUILDING" from updated logo component
 
 const Footer = () => {
   return (

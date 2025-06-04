@@ -12,7 +12,7 @@ export const floorPlansData = [
     area: { icon: Maximize2, label: "Diện Tích Cho Thuê", value: "485m²" },
     subdivision: { icon: LayoutGrid, label: "Diện Tích Phân Khu", value: "47 - 124 - 148m²" },
     price: { label: "Giá Thuê", value: "Liên Hệ 0919 999 939" },
-    description: "Quý khách có nhu cầu thuê diện tích linh hoạt hoặc thuê toàn bộ sàn, vui lòng liên hệ chúng tôi để được hỗ trợ.",
+    description: "Quý khách có nhu cầu thuê <strong>diện tích linh hoạt</strong> hoặc <strong>toàn bộ sàn</strong>, vui lòng liên hệ chúng tôi để được hỗ trợ.",
     imageSrc: "/images/BV-tang24.png",
     imageAlt: "Bản vẽ mặt bằng tầng 2-4",
     aiHint: "architectural floor plan",
