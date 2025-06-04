@@ -12,7 +12,7 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <HeroSection />
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-screen-xl mx-auto px-8 sm:px-6 lg:px-8">
           <AboutSection />
           <InfoServicesSection />
           <FloorPlanSection />

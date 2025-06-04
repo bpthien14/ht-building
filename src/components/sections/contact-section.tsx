@@ -12,9 +12,7 @@ import { Card as UICard } from '@/components/ui/card';
 //   title?: string;
 // }
 
-const ContactSection = (/* props: ContactSectionProps */) => {
-  // Số điện thoại có thể lấy từ props hoặc để cố định như hiện tại
-  const phoneNumber = "0919 999 939"; 
+const ContactSection = () => {
 
   return (
     <section id="contact" className="py-16 md:py-24 bg-white">

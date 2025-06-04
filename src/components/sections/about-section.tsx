@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const AboutSection = () => {
   return (
@@ -20,10 +19,10 @@ const AboutSection = () => {
               Về H&amp;T Building
             </h2>
             <p className="text-[#000000] text-xl mb-8 leading-relaxed" style={{ fontFamily: 'var(--font-montserrat)' }}>
-              Tọa lạc tại <strong className="text-foreground">204-204A Trần Hưng Đạo, P. Mỹ Bình</strong>, trung tâm TP. Long Xuyên – Trục tài chính sôi động, tập trung nhiều ngân hàng lớn, gần Vincom Plaza, trường học, khu hành chính và các tuyến giao thông huyết mạch.
+              Tọa lạc tại <strong className="text-foreground">204-204A Trần Hưng Đạo</strong>, P. Mỹ Bình, trung tâm TP. Long Xuyên – Trục tài chính sôi động, tập trung nhiều ngân hàng lớn, gần Vincom Plaza, trường học, khu hành chính và các tuyến giao thông huyết mạch.
             </p>
             <p className="text-[#000000] text-xl leading-relaxed" style={{ fontFamily: 'var(--font-montserrat)' }}>
-              Không gian hiện đại, diện tích linh hoạt từ <strong className="text-foreground">49-485m²</strong> – phù hợp cho cả doanh nghiệp vừa, nhỏ và quy mô lớn. Giá thuê hợp lý, hạ tầng hoàn chỉnh, dịch vụ đầy đủ – lựa chọn hàng đầu cho doanh nghiệp đang tìm kiếm không gian làm việc chuyên nghiệp và dễ dàng mở rộng.
+              Không gian hiện đại, <strong className="text-foreground"> diện tích linh hoạt từ 49-485m²</strong> – phù hợp cho cả doanh nghiệp vừa, nhỏ và quy mô lớn. <strong className="text-foreground">Giá thuê hợp lý, hạ tầng hoàn chỉnh, dịch vụ đầy đủ</strong> – lựa chọn hàng đầu cho doanh nghiệp đang tìm kiếm không gian làm việc chuyên nghiệp và dễ dàng mở rộng.
             </p>
           </div>
         </div>

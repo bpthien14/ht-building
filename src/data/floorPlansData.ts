@@ -54,7 +54,29 @@ export const floorPlansData = [
     imageSrc: "/images/BV-tang5.png",
     imageAlt: "Bản vẽ mặt bằng tầng 5",
     aiHint: "office layout blueprint",
-    subSections: [] // Không có phân khu cố định
+    subSections: [
+      { 
+        title: "Diện Tích 47m²", 
+        imageSrc: "/images/BV-tang5-phanKhu1.png", // Giả sử có ảnh riêng cho phân khu
+        imageAlt: "Phân khu 47m2",
+        status: "Còn Trống", 
+        price: "Liên Hệ" 
+      },
+      { 
+        title: "Diện Tích 98m²", 
+        imageSrc: "/images/BV-tang5-phanKhu2.png",
+        imageAlt: "Phân khu 98m2",
+        status: "Còn Trống", 
+        price: "Liên Hệ" 
+      },
+      { 
+        title: "Diện Tích 148m²", 
+        imageSrc: "/images/BV-tang5-phanKhu3.png",
+        imageAlt: "Phân khu 148m2",
+        status: "Còn Trống", 
+        price: "Liên Hệ" 
+      },
+    ] 
   },
   {
     id: "tang-6",
@@ -70,11 +92,32 @@ export const floorPlansData = [
     imageSrc: "/images/BV-tang6.png",
     imageAlt: "Bản vẽ mặt bằng tầng 6",
     aiHint: "top floor plan",
-    subSections: []
+    subSections: [
+      { 
+        title: "Diện Tích 47m²", 
+        imageSrc: "/images/BV-tang6-phanKhu1.png", // Giả sử có ảnh riêng cho phân khu
+        imageAlt: "Phân khu 47m2",
+        status: "Còn Trống", 
+        price: "Liên Hệ" 
+      },
+      { 
+        title: "Diện Tích 98m²", 
+        imageSrc: "/images/BV-tang6-phanKhu2.png",
+        imageAlt: "Phân khu 98m2",
+        status: "Còn Trống", 
+        price: "Liên Hệ" 
+      },
+      { 
+        title: "Diện Tích 105m²", 
+        imageSrc: "/images/BV-tang6-phanKhu3.png",
+        imageAlt: "Phân khu 105m2",
+        status: "Còn Trống", 
+        price: "Liên Hệ" 
+      },
+    ]
   },
 ];
 
-// Định nghĩa kiểu dữ liệu nếu cần (TypeScript)
 export type SubSectionType = {
   title: string;
   imageSrc: string;

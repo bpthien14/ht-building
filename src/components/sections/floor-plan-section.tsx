@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Button as UIButton } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { floorPlansData, FloorPlanDataType } from '@/data/floorPlansData';
 import React from 'react';
@@ -21,7 +20,7 @@ const FloorPlanSection = () => {
     <section id="floor-plan" className="py-16 md:py-24 bg-white" style={{ fontFamily: 'var(--font-montserrat)' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 md:mb-8">
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-800 tracking-tight" style={{ fontFamily: 'var(--font-montserrat)' }}>
+          <h2 className="text-4xl sm:text-5xl font-bold text-slate-800 tracking-tight">
             Mặt Bằng Cho Thuê
           </h2>
         </div>
@@ -36,7 +35,6 @@ const FloorPlanSection = () => {
                   key={plan.tabValue} 
                   value={plan.tabValue}
                   className="py-4 px-8 text-center group relative bg-white transition-all duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-100 data-[state=active]:bg-white data-[state=active]:rounded-lg data-[state=active]:shadow-none data-[state=active]:scale-105"
-                  style={{ fontFamily: 'var(--font-montserrat)' }}
                 >
                   <div className="flex flex-col items-center">
                     <span className="text-lg font-semibold group-data-[state=active]:text-stone-800 group-data-[state=active]:font-bold group-data-[state=inactive]:text-stone-600">{plan.tabLabel}</span>
@@ -61,9 +59,6 @@ const FloorPlanSection = () => {
               if (plan.subdivision) {
                 displayItems.push({ icon: plan.subdivision.icon, label: plan.subdivision.label, value: plan.subdivision.value });
               }
-              if (plan.price) {
-                displayItems.push({ label: plan.price.label, value: plan.price.value });
-              }
 
               return (
                 <TabsContent 
@@ -74,10 +69,10 @@ const FloorPlanSection = () => {
                 >
                   <div className="grid md:grid-cols-2 gap-x-8 gap-y-6 md:gap-x-10 items-start pt-8 w-5/6">
                     <div className="flex flex-col items-start">
-                      <Badge className="bg-slate-700 hover:bg-slate-700 text-white px-4 py-1.5 text-lg font-semibold rounded-md mb-5" style={{ fontFamily: 'var(--font-montserrat)' }}>
+                      <Badge className="bg-slate-700 hover:bg-slate-700 text-white px-4 py-1.5 text-lg font-semibold rounded-md mb-5">
                         {plan.status}
                       </Badge>
-                      <h3 className="text-4xl font-semibold text-slate-800 mb-6" style={{ fontFamily: 'var(--font-montserrat)' }}>
+                      <h3 className="text-4xl font-semibold text-slate-800 mb-6">
                         {plan.title}
                       </h3>
                       <div className="space-y-5 mb-8 w-full">
@@ -85,14 +80,14 @@ const FloorPlanSection = () => {
                           <div key={item.label} className="flex items-start text-slate-700">
                             {item.icon && <item.icon className="h-7 w-7 mr-5 text-slate-500 flex-shrink-0 mt-1" />}
                             <div className={!item.icon ? 'ml-[calc(theme(spacing.7)_+_theme(spacing.5))]' : ''}>
-                              <p className="text-xl text-slate-600" style={{ fontFamily: 'var(--font-montserrat)' }}>{item.label}</p>
-                              <p className="font-bold text-2xl text-slate-800" style={{ fontFamily: 'var(--font-montserrat)' }}>{item.value}</p>
+                              <p className="text-xl text-slate-600">{item.label}</p>
+                              <p className="font-bold text-2xl text-slate-800">{item.value}</p>
                             </div>
                           </div>
                         ))}
                       </div>
                       <Link href={`/mat-bang/${plan.tabValue}`} passHref legacyBehavior>
-                        <a className="bg-slate-700 hover:bg-slate-800 text-white px-8 py-4 text-xl font-semibold rounded-md shadow-sm transition-colors duration-300 mt-8 ml-20 inline-block text-center" style={{ fontFamily: 'var(--font-montserrat)' }}>
+                        <a className="bg-slate-700 hover:bg-slate-800 text-white px-8 py-4 text-xl font-semibold rounded-md shadow-sm transition-colors duration-300 mt-8 ml-20 inline-block text-center">
                           Xem Chi Tiết
                         </a>
                       </Link>
