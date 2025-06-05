@@ -3,9 +3,10 @@
 import type { Route } from 'next';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetTitle, SheetDescription } from '@/components/ui/sheet';
+import { FloorPlanDataType } from '@/data/floorPlansData';
 
 interface NavLink {
     href: Route | URL;
@@ -13,11 +14,13 @@ interface NavLink {
 }
 
 interface MobileNavProps {
-    navLinks: NavLink[];
+    navLinks?: NavLink[];
+    floorPlansData: FloorPlanDataType[];
 }
 
-const MobileNav = ({ navLinks }: MobileNavProps) => {
+const MobileNav = ({ floorPlansData }: MobileNavProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isFloorPlanOpen, setIsFloorPlanOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
@@ -36,45 +39,77 @@ const MobileNav = ({ navLinks }: MobileNavProps) => {
           <Menu className="h-6 w-6" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="left" className="w-full max-w-xs bg-FFFFFF p-6 shadow-xl">
+      <SheetContent side="left" className="w-full max-w-xs p-6 shadow-xl [&>button]:hidden" style={{ backgroundColor: '#323a48', color: '#f8f1e9' }}>
+        <SheetTitle className="sr-only">Menu Navigation</SheetTitle>
+        <SheetDescription className="sr-only">Main navigation menu for mobile devices</SheetDescription>
         <div className="flex flex-col space-y-6 h-full">
           <div className="flex justify-between items-center">
-            <SheetClose asChild>
-                <Link href="/" onClick={() => setIsOpen(false)} className="text-2xl font-bold text-2F3748 hover:text-2F3748/90 transition-colors">
-                  H&T BUILDING
-                </Link>
-            </SheetClose>
-            <SheetClose asChild>
-              <Button variant="ghost" size="icon" aria-label="Close menu">
-                <X className="h-6 w-6" />
-              </Button>
-            </SheetClose>
+            <Link href="/" onClick={() => setIsOpen(false)} className="text-2xl font-bold transition-colors" style={{ color: '#f8f1e9' }}>
+              H&T BUILDING
+            </Link>
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              aria-label="Close menu" 
+              className="hover:bg-white/10" 
+              style={{ color: '#f8f1e9' }}
+              onClick={() => setIsOpen(false)}
+            >
+              <X className="h-6 w-6" />
+            </Button>
           </div>
           <nav className="flex flex-col space-y-4 mt-6">
-            {navLinks.map((link) => (
-              <SheetClose asChild key={link.href.toString()}>
-                <Link
-                  href={link.href}
-                  className="text-lg font-medium text-foreground hover:text-2F3748 transition-colors py-2"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              </SheetClose>
-            ))}
+            <SheetClose asChild>
+              <Link
+                href="/"
+                className="text-lg font-medium transition-colors py-2 hover:opacity-80"
+                style={{ color: '#f8f1e9' }}
+                onClick={() => setIsOpen(false)}
+              >
+                Trang Chủ
+              </Link>
+            </SheetClose>
+            
+            {/* Floor Plans Dropdown for Mobile */}
+            <div className="border-t border-white/20 pt-4">
+              <button
+                onClick={() => setIsFloorPlanOpen(!isFloorPlanOpen)}
+                className="flex items-center justify-between w-full text-lg font-medium py-2 hover:opacity-80 transition-colors"
+                style={{ color: '#f8f1e9' }}
+              >
+                Mặt Bằng Cho Thuê
+                {isFloorPlanOpen ? <ChevronDown className="h-5 w-5" /> : <ChevronRight className="h-5 w-5" />}
+              </button>
+              
+              {isFloorPlanOpen && (
+                <div className="ml-4 mt-2 space-y-2">
+                  {floorPlansData.map((plan) => (
+                    <SheetClose asChild key={plan.tabValue}>
+                      <Link
+                        href={`/mat-bang/${plan.tabValue}`}
+                        className="block text-base py-2 hover:opacity-80 transition-colors"
+                        style={{ color: '#f8f1e9' }}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {plan.tabLabel}
+                      </Link>
+                    </SheetClose>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <SheetClose asChild>
+              <Link
+                href="#contact"
+                className="text-lg font-medium transition-colors py-2 hover:opacity-80"
+                style={{ color: '#f8f1e9' }}
+                onClick={() => setIsOpen(false)}
+              >
+                Liên Hệ
+              </Link>
+            </SheetClose>
           </nav>
-          {/* Removed Sign In / Get Started Buttons
-          <div className="mt-auto space-y-4">
-            <SheetClose asChild>
-                <Button variant="outline" className="w-full" onClick={() => setIsOpen(false)}>Sign In</Button>
-            </SheetClose>
-            <SheetClose asChild>
-                <Button className="w-full bg-465A80 hover:bg-accent/90 text-FFFFFF" onClick={() => setIsOpen(false)}>
-                 Get Started
-                </Button>
-            </SheetClose>
-          </div>
-          */}
         </div>
       </SheetContent>
     </Sheet>

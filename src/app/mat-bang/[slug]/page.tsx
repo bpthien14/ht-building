@@ -20,11 +20,12 @@ type FloorPlanItem = ItemWithIcon | ItemWithoutIcon;
 
 interface FloorPlanDetailProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  params: any;
+  params: Promise<{ slug: string }>;
 }
 
 const FloorPlanDetailPage = ({ params }: FloorPlanDetailProps) => {
-  const { slug } = params;
+  const resolvedParams = React.use(params);
+  const { slug } = resolvedParams;
   const plan = floorPlansData.find(p => p.tabValue === slug);
 
   // Helper function để kiểm tra item có icon hay không
@@ -34,15 +35,12 @@ const FloorPlanDetailPage = ({ params }: FloorPlanDetailProps) => {
 
   if (!plan) {
     return (
-      
       <div className="flex flex-col min-h-screen bg-background items-center justify-center">
         <Header />
         <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center">
           <h1 className="text-3xl font-bold text-slate-800">Không tìm thấy mặt bằng</h1>
-          <Link href="/" legacyBehavior>
-            <a className="mt-4 inline-block bg-slate-700 hover:bg-slate-800 text-white px-6 py-3 rounded-md">
-              Quay về Trang Chủ
-            </a>
+          <Link href="/" className="mt-4 inline-block bg-slate-700 hover:bg-slate-800 text-white px-6 py-3 rounded-md">
+            Quay về Trang Chủ
           </Link>
         </main>
         <Footer />
@@ -50,10 +48,7 @@ const FloorPlanDetailPage = ({ params }: FloorPlanDetailProps) => {
     );
   }
 
-  <ContactSection/>
-
   return (
-    
     <div className="flex flex-col min-h-screen bg-background" style={{ fontFamily: 'var(--font-montserrat)' }}>
       <Header />
       <main className="flex-grow">
@@ -73,9 +68,8 @@ const FloorPlanDetailPage = ({ params }: FloorPlanDetailProps) => {
             </Button>
           </div>
         </section>
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
 
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section 2: Floor Plan Details */}
           <section className="py-16 md:py-24 bg-white">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -167,7 +161,6 @@ const FloorPlanDetailPage = ({ params }: FloorPlanDetailProps) => {
           {/* Section 4: Contact Form (Reused/Adapted from homepage) */}
           <ContactSection />
         </div>
-      </div>
       </main>
       
       <Footer />
