@@ -108,7 +108,7 @@ const FloorPlanSection = () => {
                           ))}
                         </div>
                         <Link 
-                          href={`/mat-bang/${plan.tabValue}`}
+                          href={`/${plan.tabValue}`}
                           className="bg-slate-700 hover:bg-slate-800 text-white px-6 py-3 sm:px-8 sm:py-4 text-lg sm:text-xl font-semibold rounded-md shadow-sm transition-colors duration-300 mt-8 ml-0 sm:ml-10 md:ml-20 inline-block text-center"
                         >
                           Xem Chi Tiết
