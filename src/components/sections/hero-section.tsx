@@ -28,7 +28,7 @@ const HeroSection = () => {
           VĂN PHÒNG CHO THUÊ <br /> TẠI LONG XUYÊN
         </p>
         <p
-          className="mt-4 sm:mt-6 max-w-full sm:max-w-xl text-[#182640]/90 font-bold text-center sm:text-left text-base sm:text-lg md:text-xl lg:text-[22px] xl:text-[25px]"
+          className="mt-4 sm:mt-6 max-w-full sm:max-w-2xl text-[#182640]/90 font-bold text-center sm:text-left text-base sm:text-lg md:text-xl lg:text-[22px] xl:text-[25px]"
         >
           Vị trí đắc địa - Diện tích linh hoạt - Giá thuê hợp lý
         </p>

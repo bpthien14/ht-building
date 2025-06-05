@@ -1,18 +1,110 @@
+'use client';
+
 import Image from 'next/image';
+import { useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+const images = [
+  {
+    src: "/images/van-phong-thuc-te3.jpg",
+    alt: "Mặt tiền tòa nhà văn phòng H&T Building tại Long Xuyên"
+  },
+  {
+    src: "/images/van-phong-thuc-te2.jpg",
+    alt: "Mặt tiền tòa nhà văn phòng H&T Building tại Long Xuyên"
+  },
+  {
+    src: "/images/van-phong-thuc-te1.jpg",
+    alt: "Mặt tiền tòa nhà văn phòng H&T Building tại Long Xuyên"
+  },
+  {
+    src: "/images/view-toa-nha.jpg",
+    alt: "View đẹp, nhìn về phía nhà thờ"
+  },
+  {
+    src: "/images/ham-gui-xe1.jpg",
+    alt: "Hầm Gửi Xe toà nhà H&T Building"
+  },
+  {
+    src: "/images/ham-gui-xe2.png",
+    alt: "Hầm Gửi Xe toà nhà H&T Building"
+  },
+  {
+    src: "/images/mat-bang-cho-thue1.png",
+    alt: "Mặt bằng tầng 5 – 480m² toàn sàn – có thể chia nhỏ"
+  },
+  {
+    src: "/images/mat-bang-cho-thue2.png",
+    alt: "Mặt bằng tầng 5 – 480m² toàn sàn – có thể chia nhỏ"
+  },
+  {
+    src: "/images/thang-may.png",
+    alt: "Hệ thống thang máy của tòa nhà văn phòng"
+  },
+  {
+    src: "/images/thang-may-mitsubishi.png",
+    alt: "2 thang máy Misubishi tốc độ cao, tải trọng 750kg (11 người)"
+  },
+  {
+    src: "/images/PCCC.png",
+    alt: "Hệ thống phòng cháy chữa cháy của toà nhà văn phòng H&T Building tại Long Xuyên"
+  },
+];
 
 const AboutSection = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const goToPrevious = () => {
+    const isFirstImage = currentIndex === 0;
+    const newIndex = isFirstImage ? images.length - 1 : currentIndex - 1;
+    setCurrentIndex(newIndex);
+  };
+
+  const goToNext = () => {
+    const isLastImage = currentIndex === images.length - 1;
+    const newIndex = isLastImage ? 0 : currentIndex + 1;
+    setCurrentIndex(newIndex);
+  };
+
   return (
     <section id="about" className="py-16 md:py-24 bg-background" style={{ fontFamily: 'var(--font-montserrat)' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-          <div className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-xl">
+          <div className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-xl group">
             <Image
-              src="/images/about.jpg"              
-              alt="H&T Building Entrance"
-              data-ai-hint="modern office exterior"
+              key={currentIndex}
+              src={images[currentIndex].src}
+              alt={images[currentIndex].alt}
               fill
-              className="object-cover object-top"
+              className="object-cover object-top transition-opacity duration-500 ease-in-out"
+              priority={currentIndex === 0}
             />
+            <button
+              onClick={goToPrevious}
+              className="absolute top-1/2 left-2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-opacity-50 z-10"
+              aria-label="Ảnh trước"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button
+              onClick={goToNext}
+              className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black bg-opacity-30 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-opacity-50 z-10"
+              aria-label="Ảnh kế tiếp"
+            >
+              <ChevronRight size={24} />
+            </button>
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+                    currentIndex === index ? 'bg-white' : 'bg-gray-400 hover:bg-gray-200'
+                  }`}
+                  aria-label={`Chuyển đến ảnh ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
           <div>
             <h2 className="text-[#000000] text-3xl sm:text-4xl md:text-5xl lg:text-[50px] xl:text-[60px] font-bold tracking-tight mb-16">

@@ -3,8 +3,8 @@ import type { LucideIcon } from 'lucide-react';
 
 export const floorPlansData = [
   {
-    id: "tang-2-4", // Thêm ID để dễ dàng tìm kiếm, cũng có thể dùng tabValue
-    tabValue: "tang-2-4",
+    id: "mat-bang-tang-2-4", // Thêm ID để dễ dàng tìm kiếm, cũng có thể dùng tabValue
+    tabValue: "mat-bang-tang-2-4",
     tabLabel: "Tầng 2 - 4",
     status: "Còn Trống",
     title: "MẶT BẰNG TẦNG 2-4",
@@ -16,33 +16,33 @@ export const floorPlansData = [
     imageSrc: "/images/BV-tang24.png",
     imageAlt: "Bản vẽ mặt bằng tầng 2-4",
     aiHint: "architectural floor plan",
-    subSections: [ // Các phân khu chi tiết
+    subSections: [
       { 
         title: "Diện Tích 47m²", 
         imageSrc: "/images/BV-tang24-phanKhu1.png", // Giả sử có ảnh riêng cho phân khu
-        imageAlt: "Phân khu 47m2",
+        imageAlt: "Bản vẽ khu diện tích 47m² tầng 2-4 tòa nhà H&T Building",
         status: "Còn Trống", 
         price: "Liên Hệ" 
       },
       { 
         title: "Diện Tích 124m²", 
         imageSrc: "/images/BV-tang24-phanKhu2.png",
-        imageAlt: "Phân khu 124m2",
+        imageAlt: "Bản vẽ khu diện tích 124m² tầng 2-4 tòa nhà H&T Building",
         status: "Còn Trống", 
         price: "Liên Hệ" 
       },
       { 
         title: "Diện Tích 148m²", 
         imageSrc: "/images/BV-tang24-phanKhu3.png",
-        imageAlt: "Phân khu 148m2",
+        imageAlt: "Bản vẽ khu diện tích 148m² tầng 2-4 tòa nhà H&T Building",
         status: "Còn Trống", 
         price: "Liên Hệ" 
       },
     ]
   },
   {
-    id: "tang-5",
-    tabValue: "tang-5",
+    id: "mat-bang-tang-5",
+    tabValue: "mat-bang-tang-5",
     tabLabel: "Tầng 5",
     status: "Còn Trống",
     title: "MẶT BẰNG TẦNG 5",
@@ -58,29 +58,29 @@ export const floorPlansData = [
       { 
         title: "Diện Tích 47m²", 
         imageSrc: "/images/BV-tang5-phanKhu1.png", // Giả sử có ảnh riêng cho phân khu
-        imageAlt: "Phân khu 47m2",
+        imageAlt: "Bản vẽ khu diện tích 47m² tầng 5 tòa nhà H&T Building",
         status: "Còn Trống", 
         price: "Liên Hệ" 
       },
       { 
         title: "Diện Tích 98m²", 
         imageSrc: "/images/BV-tang5-phanKhu2.png",
-        imageAlt: "Phân khu 98m2",
+        imageAlt: "Bản vẽ khu diện tích 98m² tầng 5 tòa nhà H&T Building",
         status: "Còn Trống", 
         price: "Liên Hệ" 
       },
       { 
         title: "Diện Tích 148m²", 
         imageSrc: "/images/BV-tang5-phanKhu3.png",
-        imageAlt: "Phân khu 148m2",
+        imageAlt: "Bản vẽ khu diện tích 148m² tầng 5 tòa nhà H&T Building",
         status: "Còn Trống", 
         price: "Liên Hệ" 
       },
     ] 
   },
   {
-    id: "tang-6",
-    tabValue: "tang-6",
+    id: "mat-bang-tang-6",
+    tabValue: "mat-bang-tang-6",
     tabLabel: "Tầng 6",
     status: "Còn Trống",
     title: "MẶT BẰNG TẦNG 6",
@@ -96,21 +96,21 @@ export const floorPlansData = [
       { 
         title: "Diện Tích 47m²", 
         imageSrc: "/images/BV-tang6-phanKhu1.png", // Giả sử có ảnh riêng cho phân khu
-        imageAlt: "Phân khu 47m2",
+        imageAlt: "Bản vẽ khu diện tích 47m² tầng 6 tòa nhà H&T Building",
         status: "Còn Trống", 
         price: "Liên Hệ" 
       },
       { 
         title: "Diện Tích 98m²", 
         imageSrc: "/images/BV-tang6-phanKhu2.png",
-        imageAlt: "Phân khu 98m2",
+        imageAlt: "Bản vẽ khu diện tích 98m² tầng 6 tòa nhà H&T Building",
         status: "Còn Trống", 
         price: "Liên Hệ" 
       },
       { 
         title: "Diện Tích 105m²", 
         imageSrc: "/images/BV-tang6-phanKhu3.png",
-        imageAlt: "Phân khu 105m2",
+        imageAlt: "Bản vẽ khu diện tích 105m² tầng 6 tòa nhà H&T Building",
         status: "Còn Trống", 
         price: "Liên Hệ" 
       },

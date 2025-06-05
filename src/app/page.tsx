@@ -5,6 +5,12 @@ import AboutSection from '@/components/sections/about-section';
 import InfoServicesSection from '@/components/sections/info-services-section';
 import FloorPlanSection from '@/components/sections/floor-plan-section';
 import ContactSection from '@/components/sections/contact-section';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Văn phòng cho thuê Long Xuyên – H&T Building | Diện tích từ 47m - 500m2',
+  description: 'Cho thuê văn phòng, mặt bằng tại Long Xuyên với giá tốt. H&T Building – Vị trí trung tâm gần Vincom, diện tích từ 47–485m². Gọi 0919 999 939 để xem ngay!',
+};
 
 export default function Home() {
   return (
@@ -16,7 +22,6 @@ export default function Home() {
           <AboutSection />
           <InfoServicesSection />
           <FloorPlanSection />
-          
           <ContactSection />
         </div>
 

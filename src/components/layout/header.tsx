@@ -54,7 +54,7 @@ const Header = () => {
                       {floorPlansData.map((plan) => (
                         <Link
                           key={plan.tabValue}
-                          href={`/mat-bang/${plan.tabValue}`}
+                          href={`/${plan.tabValue}`}
                           className="block px-4 py-2 text-sm hover:bg-white/10 transition-colors"
                           style={{ color: '#f8f1e9' }}
                         >

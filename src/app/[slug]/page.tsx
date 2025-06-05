@@ -1,0 +1,209 @@
+import React from 'react';
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
+import { floorPlansData } from '@/data/floorPlansData';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
+import { DollarSign, LucideIcon } from 'lucide-react';
+import { Metadata, ResolvingMetadata } from 'next';
+
+import ContactSection from '@/components/sections/contact-section';
+
+// Type để xử lý các item có hoặc không có icon
+type ItemWithIcon = { icon: LucideIcon; label: string; value: string };
+type ItemWithoutIcon = { label: string; value: string };
+type FloorPlanItem = ItemWithIcon | ItemWithoutIcon;
+
+interface FloorPlanDetailProps {
+  params: Promise<{ slug: string }>;
+}
+
+// Interface riêng cho generateMetadata vì params ở đây là Promise
+interface GenerateMetadataProps {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata(
+  { params: paramsPromise }: GenerateMetadataProps,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const params = await paramsPromise;
+  const slug = params.slug;
+
+  if (slug === 'mat-bang-tang-2-4') {
+    return {
+      title: 'Tầng 2-4 – Cho thuê văn phòng Long Xuyên | H&T Building',
+      description: 'Tầng 2-4 tại H&T Building Long Xuyên, diện tích từ 47-148m² (485m²/sàn), chia sẵn khu. Phù hợp cho nhu cầu thuê văn phòng tại An Giang. Gọi 0919 999 939 để xem ngay!',
+    };
+  }
+  if (slug === 'mat-bang-tang-5') {
+    return {
+      title: 'Tầng 5 – Cho thuê văn phòng Long Xuyên | H&T Building',
+      description: 'Tầng 5 tại H&T Building Long Xuyên, diện tích từ 47–148m² (480m²/sàn), chia sẵn khu, có ban công thoáng mát. Phù hợp cho nhu cầu thuê văn phòng tại An Giang. Gọi 0919 999 939 để xem ngay!',
+    };
+  }
+  if (slug === 'mat-bang-tang-6') {
+    return {
+      title: 'Tầng 6 – Cho thuê văn phòng Long Xuyên | H&T Building',
+      description: 'Tầng 6 tại H&T Building Long Xuyên, diện tích từ 47–105m² (455m²/sàn), chia sẵn khu, có ban công thoáng mát. Phù hợp cho nhu cầu thuê văn phòng tại An Giang. Gọi 0919 999 939 để xem ngay!',
+    };
+  }
+  const previousImages = (await parent).openGraph?.images || []
+  return {
+    title: 'Chi tiết mặt bằng',
+    description: 'Thông tin chi tiết về mặt bằng cho thuê.',
+    openGraph: {
+      images: [...previousImages],
+    },
+  };
+}
+
+const FloorPlanDetailPage = async ({ params: paramsPromise }: FloorPlanDetailProps) => {
+  const params = await paramsPromise;
+  const { slug } = params;
+  const plan = floorPlansData.find(p => p.tabValue === slug);
+
+  // Helper function để kiểm tra item có icon hay không
+  const hasIcon = (item: FloorPlanItem): item is ItemWithIcon => {
+    return 'icon' in item;
+  };
+
+  if (!plan) {
+    return (
+      <div className="flex flex-col min-h-screen bg-background items-center justify-center">
+        <Header />
+        <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center">
+          <h1 className="text-3xl font-bold text-slate-800">Không tìm thấy mặt bằng</h1>
+          <Link href="/" className="mt-4 inline-block bg-slate-700 hover:bg-slate-800 text-white px-6 py-3 rounded-md">
+            Quay về Trang Chủ
+          </Link>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col min-h-screen bg-background" style={{ fontFamily: 'var(--font-montserrat)' }}>
+      <Header />
+      <main className="flex-grow">
+        {/* Section 1: Hero Title */}
+        <section 
+          className="py-20 md:py-28 text-center bg-cover bg-center bg-gradient-to-r from-[#c5c5c5] to-[#fdfdfd]"
+        >
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl text-slate-800 tracking-tight">
+              {plan.heroTitle}
+            </h1>
+            <Button 
+              asChild 
+              className="mt-8 bg-slate-700 hover:bg-slate-800 text-white px-10 py-4 text-lg font-semibold rounded-md shadow-md transition-colors duration-300"
+            >
+              <Link href="#contact-form">Liên Hệ Ngay</Link>
+            </Button>
+          </div>
+        </section>
+
+        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Section 2: Floor Plan Details */}
+          <section className="py-16 md:py-24 bg-white">
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid md:grid-cols-2 gap-x-12 gap-y-10 items-start">
+                {/* Left Column: Info */}
+                <div className="flex flex-col items-start">
+                  <Badge className="bg-slate-700 hover:bg-slate-700 text-white px-4 py-1.5 text-lg font-semibold rounded-md mb-5">
+                    {plan.status}
+                  </Badge>
+                  <h2 className="text-3xl sm:text-4xl font-semibold text-slate-800 mb-6">
+                    {plan.title}
+                  </h2>
+
+                  <div className="space-y-5 mb-8 w-full text-lg">
+                    {[plan.area, plan.subdivision, plan.price].map(item => (
+                      item && (
+                        <div key={item.label} className="flex items-start text-slate-700">
+                          {hasIcon(item) 
+                            ? React.createElement(item.icon, {
+                                className: "h-6 w-6 mr-4 text-slate-500 flex-shrink-0 mt-1"
+                              })
+                            : <DollarSign className="h-6 w-6 mr-4 text-slate-500 flex-shrink-0 mt-1" />
+                          }
+                          <div>
+                            <p className="text-slate-600">{item.label}</p>
+                            <p className="font-bold text-xl text-slate-800">{item.value}</p>
+                          </div>
+                        </div>
+                      )
+                    ))}
+                  </div>
+                  {plan.description && (
+                    <p 
+                      className="text-slate-600 leading-relaxed mb-8"
+                      dangerouslySetInnerHTML={{ __html: plan.description }}
+                    />
+                  )}
+                </div>
+
+                {/* Right Column: Image */}
+                <div className="relative aspect-[4/5] w-full mx-auto bg-white p-3 sm:p-4 rounded-lg border border-slate-200 shadow-sm">
+                  <Image
+                    src={plan.imageSrc}
+                    alt={plan.imageAlt}
+                    fill
+                    className="object-contain rounded-md"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 3: Sub-sections / Phân Khu (if any) */}
+          {plan.subSections && plan.subSections.length > 0 && (
+            <section className="py-16 md:py-24 bg-white">
+              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 text-center mb-12 md:mb-16">
+                  Phân Khu Cho Thuê
+                </h2>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {plan.subSections.map((sub, index) => (
+                    <Card key={index} className="overflow-hidden shadow-none border-none hover:shadow-lg transition-shadow duration-300 bg-[#F8F4EF] rounded-lg">
+                      <div className="relative aspect-video w-full bg-white p-2 border-b border-slate-200">
+                        <Image 
+                          src={sub.imageSrc || plan.imageSrc}
+                          alt={sub.imageAlt}
+                          fill
+                          className="object-contain"
+                          style={{ backgroundColor: '#F8F4EF' }}
+                        />
+                      </div>
+                      <CardContent className="p-4 text-center">
+                        <h3 className="text-3xl font-semibold text-slate-800 mb-2">{sub.title}</h3>
+                        <Badge className="mb-3 bg-slate-700 text-white text-xs px-3 py-1 font-semibold rounded-full inline-block">
+                          {sub.status}
+                        </Badge>
+                        <p className="text-base text-slate-600">
+                        <span className="font-bold text-slate-800"> Giá: </span> {sub.price}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Section 4: Contact Form (Reused/Adapted from homepage) */}
+          <ContactSection />
+        </div>
+      </main>
+      
+      <Footer />
+    </div>
+  );
+};
+
+export default FloorPlanDetailPage;

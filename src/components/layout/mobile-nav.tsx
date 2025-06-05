@@ -86,7 +86,7 @@ const MobileNav = ({ floorPlansData }: MobileNavProps) => {
                   {floorPlansData.map((plan) => (
                     <SheetClose asChild key={plan.tabValue}>
                       <Link
-                        href={`/mat-bang/${plan.tabValue}`}
+                        href={`/${plan.tabValue}`}
                         className="block text-base py-2 hover:opacity-80 transition-colors"
                         style={{ color: '#f8f1e9' }}
                         onClick={() => setIsOpen(false)}
