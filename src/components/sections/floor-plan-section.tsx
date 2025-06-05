@@ -46,7 +46,7 @@ const FloorPlanSection = () => {
                 <TabsTrigger 
                   key={plan.tabValue} 
                   value={plan.tabValue}
-                  className="py-3 px-4 sm:py-4 sm:px-6 md:px-8 text-center group relative bg-white transition-all duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-100 data-[state=active]:bg-white data-[state=active]:rounded-lg data-[state=active]:shadow-none data-[state=active]:scale-105"
+                  className="py-3 px-4 sm:py-4 sm:px-6 md:px-8 text-center group relative bg-white transition-all duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-100 data-[state=active]:bg-white data-[state=active]:rounded-lg data-[state=active]:shadow-none data-[state=active]:scale-110"
                 >
                   <div className="flex flex-col items-center">
                     <span className="text-sm sm:text-base md:text-lg font-semibold group-data-[state=active]:text-stone-800 group-data-[state=active]:font-bold group-data-[state=inactive]:text-stone-600">{plan.tabLabel}</span>
@@ -93,7 +93,7 @@ const FloorPlanSection = () => {
                         <Badge className="bg-slate-700 hover:bg-slate-700 text-white px-4 py-1.5 text-lg font-semibold rounded-md mb-5">
                           {plan.status}
                         </Badge>
-                        <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-slate-800 mb-6">
+                        <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-semibold text-slate-800 mb-6">
                           {plan.title}
                         </h3>
                         <div className="space-y-5 mb-8 w-full">
