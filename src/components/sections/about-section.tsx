@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Lightbox } from '@/components/ui/lightbox';
 
 const images = [
   {
@@ -53,6 +54,7 @@ const images = [
 
 const AboutSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
   const goToPrevious = () => {
     const isFirstImage = currentIndex === 0;
@@ -76,8 +78,9 @@ const AboutSection = () => {
               src={images[currentIndex].src}
               alt={images[currentIndex].alt}
               fill
-              className="object-cover object-top transition-opacity duration-500 ease-in-out"
+              className="object-cover object-top transition-opacity duration-500 ease-in-out cursor-pointer"
               priority={currentIndex === 0}
+              onClick={() => setIsLightboxOpen(true)}
             />
             <button
               onClick={goToPrevious}
@@ -119,6 +122,15 @@ const AboutSection = () => {
           </div>
         </div>
       </div>
+
+      <Lightbox
+        isOpen={isLightboxOpen}
+        onClose={() => setIsLightboxOpen(false)}
+        images={images}
+        currentIndex={currentIndex}
+        onNext={goToNext}
+        onPrevious={goToPrevious}
+      />
     </section>
   );
 };

@@ -39,21 +39,6 @@ const ContactSection = () => {
                 </div>
             </div>
 
-            {/* Google Map Embed Start */}
-            <div className="rounded-lg overflow-hidden shadow-xl">
-              <iframe
-                src="https://maps.google.com/maps?q=204%20Trần%20Hưng%20Đạo%2C%20Mỹ%20Bình%2C%20Thành%20phố%20Long%20Xuyên%2C%20An%20Giang&t=&z=17&ie=UTF8&iwloc=&output=embed"
-                width="100%"
-                height="160"
-                style={{ border: 0 }}
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="H&T Building Location Map"
-              ></iframe>
-            </div>
-            {/* Google Map Embed End */}
-
           </div>
 
           <div className="md:col-span-7 lg:col-span-7" style={{ fontFamily: 'var(--font-montserrat)' }}>

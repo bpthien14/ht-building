@@ -25,7 +25,7 @@ const FloorPlanSection = () => {
   };
 
   return (
-    <section id="floor-plan" className="py-16 md:py-24 bg-white" style={{ fontFamily: 'var(--font-montserrat)' }}>
+    <section id="floor-plan" className="py-16 md:py-24 bg-white" style={{ fontFamily: 'Montserrat, Raleway, Arial, sans-serif' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 md:mb-8">
           <h2 className="text-4xl sm:text-5xl font-bold text-slate-800 tracking-tight">
@@ -47,6 +47,7 @@ const FloorPlanSection = () => {
                   key={plan.tabValue} 
                   value={plan.tabValue}
                   className="py-3 px-4 sm:py-4 sm:px-6 md:px-8 text-center group relative bg-white transition-all duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-100 data-[state=active]:bg-white data-[state=active]:rounded-lg data-[state=active]:shadow-none data-[state=active]:scale-110"
+                  style={{ fontFamily: 'Montserrat' }}
                 >
                   <div className="flex flex-col items-center">
                     <span className="text-sm sm:text-base md:text-lg font-semibold group-data-[state=active]:text-stone-800 group-data-[state=active]:font-bold group-data-[state=inactive]:text-stone-600">{plan.tabLabel}</span>
@@ -61,9 +62,8 @@ const FloorPlanSection = () => {
               return [trigger];
             })}
           </TabsList>
-          
-          {/* Container cho slide animation */}
-          <div className="relative overflow-hidden min-h-[800px]">
+          {/* MCP Figma UI cho từng tab */}
+          <div className="relative overflow-hidden min-h-[640px]">
             <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{
@@ -71,64 +71,77 @@ const FloorPlanSection = () => {
                 transform: `translateX(-${currentTabIndex * (100 / (currentFloorPlans.length || 1))}%)`,
               }}
             >
-              {(currentFloorPlans || []).map((plan: FloorPlanDataType, index: number) => {
-                const displayItems: DetailListItem[] = [];
-                if (plan.area) {
-                  displayItems.push({ icon: plan.area.icon, label: plan.area.label, value: plan.area.value });
-                }
-                if (plan.subdivision) {
-                  displayItems.push({ icon: plan.subdivision.icon, label: plan.subdivision.label, value: plan.subdivision.value });
-                }
-
-                return (
-                  <TabsContent 
-                    forceMount
-                    key={plan.tabValue} 
-                    value={plan.tabValue}
-                    className="focus-visible:outline-none flex-shrink-0 overflow-hidden"
-                    style={{ width: `${100 / (currentFloorPlans.length || 1)}%` }}
-                  >
-                    <div className="grid md:grid-cols-2 gap-x-8 gap-y-6 md:gap-x-10 items-start pt-8 w-full max-w-6xl mx-auto md:mx-0 md:ml-20">
-                      <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                        <Badge className="bg-slate-700 hover:bg-slate-700 text-white px-4 py-1.5 text-lg font-semibold rounded-md mb-5">
+              {(currentFloorPlans || []).map((plan: FloorPlanDataType, index: number) => (
+                <TabsContent 
+                  forceMount
+                  key={plan.tabValue} 
+                  value={plan.tabValue}
+                  className="focus-visible:outline-none flex-shrink-0 overflow-hidden"
+                  style={{ width: `${100 / (currentFloorPlans.length || 1)}%`, fontFamily: 'Montserrat, Raleway, Arial, sans-serif' }}
+                >
+                  {/* Figma MCP Section Start */}
+                  <div className="w-full flex justify-center mt-0">
+                    <div
+                      className="bg-white rounded-lg shadow-none flex flex-col md:flex-row items-center md:items-start gap-10 px-6 pt-4 pb-10 md:py-8 md:px-16 max-w-[1071px] w-full border border-[#ececec] border-none"
+                      style={{ fontFamily: 'Montserrat, Raleway, Arial, sans-serif' }}
+                    >
+                      {/* Left Content (Mobile: căn giữa, md: text-left) */}
+                      <div className="flex-1 min-w-[320px] max-w-[480px] flex flex-col gap-4 md:gap-8 items-center md:items-start text-center md:text-left">
+                        <Badge className="bg-[#303846] text-white px-2 py-0.5 text-sm font-semibold rounded mb-1">
                           {plan.status}
                         </Badge>
-                        <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-semibold text-slate-800 mb-6">
+                        <h3
+                          className="text-[32px] sm:text-[40px] font-semibold mb-2"
+                          style={{ fontFamily: 'Montserrat', fontWeight: 600, lineHeight: '1.22em', letterSpacing: '-2%' }}
+                        >
                           {plan.title}
                         </h3>
-                        <div className="space-y-5 mb-8 w-full">
-                          {displayItems.map((item) => (
-                            <div key={item.label} className="flex items-start text-slate-700 justify-center md:justify-start">
-                              {item.icon && <item.icon className="h-6 w-6 sm:h-7 sm:w-7 mr-3 sm:mr-5 text-slate-500 flex-shrink-0 mt-1" />}
-                              <div className={!item.icon ? 'ml-[calc(theme(spacing.6)_+_theme(spacing.3))] sm:ml-[calc(theme(spacing.7)_+_theme(spacing.5))]' : ''}>
-                                <p className="text-lg sm:text-xl text-slate-600">{item.label}</p>
-                                <p className="font-bold text-xl sm:text-2xl text-slate-800">{item.value}</p>
-                              </div>
-                            </div>
-                          ))}
+                        {/* Hình ảnh tầng nằm ngay dưới tiêu đề ở mobile */}
+                        <div className="w-full flex justify-center md:hidden mb-4">
+                          <img
+                            src={plan.imageSrc}
+                            alt={plan.imageAlt}
+                            className="rounded-[3px] w-full max-w-[320px] h-auto object-contain border border-[#000000]"
+                            style={{ aspectRatio: '476/628' }}
+                          />
                         </div>
-                        <Link 
+                        <div className="flex items-center gap-4 mb-2 justify-center md:justify-start">
+                          {plan.area?.icon && <plan.area.icon className="h-6 w-6 mr-3 text-[#222]" />}
+                          <div>
+                            <div className="text-lg text-[#222] font-normal" >{plan.area?.label}</div>
+                            <div className="text-2xl font-bold text-[#222]" >{plan.area?.value}</div>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-4 mb-2 justify-center md:justify-start">
+                          {plan.subdivision?.icon && <plan.subdivision.icon className="h-6 w-6 mr-3 text-[#222]" />}
+                          <div>
+                            <div className="text-lg text-[#222] font-normal">{plan.subdivision?.label}</div>
+                            <div className="text-2xl font-bold text-[#222]">{plan.subdivision?.value}</div>
+                          </div>
+                        </div>
+                        <Link
                           href={`/${plan.tabValue}`}
-                          className="bg-slate-700 hover:bg-slate-800 text-white px-6 py-3 sm:px-8 sm:py-4 text-lg sm:text-xl font-semibold rounded-md shadow-sm transition-colors duration-300 mt-8 ml-0 sm:ml-10 md:ml-20 inline-block text-center"
+                          className="bg-[#303846] text-white rounded-[8px] px-10 py-4 text-[24px] font-medium w-fit mt-6 shadow block text-center transition-all duration-200 ease-in-out hover:bg-[#222] hover:scale-[1.04] hover:shadow-xl focus-visible:outline-none"
+                          style={{ fontFamily: 'Montserrat', fontWeight: 500, lineHeight: '1.5em', boxShadow: '0px 1px 2px 0px rgba(0,0,0,0.05)' }}
                         >
                           Xem Chi Tiết
                         </Link>
+                        {/* Hình ảnh tầng ở desktop sẽ nằm bên phải, mobile đã hiển thị phía trên */}
                       </div>
-
-                      <div className="relative aspect-[4/5] w-full bg-transparent p-3 sm:p-4 rounded-lg border border-none shadow-none md:-ml-12">
-                        <Image
+                      {/* Right Image (ẩn ở mobile, chỉ hiện ở md trở lên) */}
+                      <div className="flex-1 justify-center items-center min-w-[320px] max-w-[476px] hidden md:flex">
+                        <img
                           src={plan.imageSrc}
                           alt={plan.imageAlt}
-                          data-ai-hint={plan.aiHint}
-                          fill
-                          className="object-contain"
-                          priority={index === currentTabIndex}
+                          className="rounded-[3px] w-full max-w-[476px] h-auto object-contain border border-[#000000]"
+                          style={{ aspectRatio: '476/628' }}
                         />
                       </div>
                     </div>
-                  </TabsContent>
-                );
-              })}
+                  </div>
+                  {/* Figma MCP Section End */}
+                </TabsContent>
+              ))}
             </div>
           </div>
         </Tabs>

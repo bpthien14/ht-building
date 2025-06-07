@@ -5,6 +5,7 @@ import AboutSection from '@/components/sections/about-section';
 import InfoServicesSection from '@/components/sections/info-services-section';
 import FloorPlanSection from '@/components/sections/floor-plan-section';
 import ContactSection from '@/components/sections/contact-section';
+import MapSection from '@/components/sections/map-section';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -23,9 +24,8 @@ export default function Home() {
           <InfoServicesSection />
           <FloorPlanSection />
           <ContactSection />
+          <MapSection />
         </div>
-
-
       </main>
 
       <Footer />
