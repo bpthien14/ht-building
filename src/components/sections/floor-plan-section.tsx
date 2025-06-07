@@ -6,10 +6,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from '@/components/ui/badge';
 import { floorPlansData } from '@/data/floorPlansData';
 import React, { useState } from 'react';
-import { Maximize2, LayoutGrid } from 'lucide-react';
+import { Maximize2, LayoutGrid, LucideIcon } from 'lucide-react';
 import type { FloorPlanDataType } from '@/data/floorPlansData';
 
-const iconMap: Record<string, any> = { Maximize2, LayoutGrid };
+const iconMap: Record<string, LucideIcon> = { Maximize2, LayoutGrid };
 
 const FloorPlanSection = () => {
   // Ép kiểu tạm thời để tránh lỗi type do icon giờ là string

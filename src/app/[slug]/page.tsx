@@ -64,10 +64,6 @@ const FloorPlanDetailPage = async ({ params: paramsPromise }: FloorPlanDetailPro
   const { slug } = params;
   const plan = floorPlansData.find(p => p.tabValue === slug);
 
-  // Helper function để kiểm tra item có icon hay không
-  const hasIcon = (item: FloorPlanItem): item is ItemWithIcon => {
-    return 'icon' in item;
-  };
 
   if (!plan) {
     return (

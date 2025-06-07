@@ -11,10 +11,6 @@ interface FloorPlanDetailClientProps {
   plan: FloorPlanDataType;
 }
 
-type ItemWithIcon = { icon: LucideIcon; label: string; value: string };
-type ItemWithoutIcon = { label: string; value: string };
-type FloorPlanItem = ItemWithIcon | ItemWithoutIcon;
-
 const iconMap: Record<string, LucideIcon> = { Maximize2, LayoutGrid };
 
 const FloorPlanDetailClient = ({ plan }: FloorPlanDetailClientProps) => {
@@ -26,7 +22,7 @@ const FloorPlanDetailClient = ({ plan }: FloorPlanDetailClientProps) => {
   // Tạo mảng images cho lightbox
   const images = [
     { src: plan?.imageSrc || '', alt: plan?.imageAlt || '' },
-    ...(plan?.subSections?.map((sub: any) => ({ src: sub.imageSrc || '', alt: sub.imageAlt || '' })) || [])
+    ...(plan?.subSections?.map((sub: SubSectionType) => ({ src: sub.imageSrc || '', alt: sub.imageAlt || '' })) || [])
   ];
 
   const openLightbox = (idx: number) => {
@@ -52,10 +48,12 @@ const FloorPlanDetailClient = ({ plan }: FloorPlanDetailClientProps) => {
                 {plan.title}
               </h2>
               <div className="space-y-5 mb-8 w-full text-lg">
-                {[plan.area, plan.subdivision, plan.price].map((item: any) => (
-                  item && (
+                {[plan.area, plan.subdivision, plan.price].map((item) => {
+                  const isIconItem = (it: unknown): it is { icon: string; label: string; value: string } =>
+                    typeof it === 'object' && it !== null && 'icon' in it && typeof (it as any).icon === 'string';
+                  return item && (
                     <div key={item.label} className="flex items-start text-slate-700">
-                      {item.icon && iconMap[item.icon]
+                      {isIconItem(item) && item.icon && iconMap[item.icon]
                         ? React.createElement(iconMap[item.icon], {
                             className: "h-6 w-6 mr-4 text-slate-500 flex-shrink-0 mt-1"
                           })
@@ -66,8 +64,8 @@ const FloorPlanDetailClient = ({ plan }: FloorPlanDetailClientProps) => {
                         <p className="font-bold text-xl text-slate-800">{item.value}</p>
                       </div>
                     </div>
-                  )
-                ))}
+                  );
+                })}
               </div>
               {plan.description && (
                 <p
@@ -90,7 +88,7 @@ const FloorPlanDetailClient = ({ plan }: FloorPlanDetailClientProps) => {
               Phân Khu Cho Thuê
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {plan.subSections.map((sub: any, index: number) => (
+              {plan.subSections.map((sub: SubSectionType, index: number) => (
                 <FloorPlanSubImage
                   key={index}
                   images={images}
