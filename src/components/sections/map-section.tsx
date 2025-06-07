@@ -51,7 +51,7 @@ const MapSection = () => {
                 <Mail className="w-7 h-7 text-[#4169aa] flex-shrink-0 mt-1" />
                 <div>
                   <div className="text-base text-[#303846] font-semibold mb-1">Email</div>
-                  <a href="mailto:info@htbuilding.vn" className="text-lg text-[#222] font-bold leading-snug hover:underline">info@htbuilding.vn</a>
+                  <a href="mailto:htbuilding.contact@gmail.com" className="text-lg text-[#222] font-bold leading-snug hover:underline">htbuilding.contact@gmail.com</a>
                 </div>
               </div>
               <div className="flex items-start gap-4">
