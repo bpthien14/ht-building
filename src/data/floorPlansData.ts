@@ -9,8 +9,8 @@ export const floorPlansData = [
     status: "Còn Trống",
     title: "MẶT BẰNG TẦNG 2-4",
     heroTitle: "Mặt Bằng Tầng 2-4", // Tiêu đề cho trang chi tiết
-    area: { icon: Maximize2, label: "Diện Tích Cho Thuê", value: "485m²" },
-    subdivision: { icon: LayoutGrid, label: "Diện Tích Phân Khu", value: "47 - 124 - 148m²" },
+    area: { icon: "Maximize2", label: "Diện Tích Cho Thuê", value: "485m²" },
+    subdivision: { icon: "LayoutGrid", label: "Diện Tích Phân Khu", value: "47 - 124 - 148m²" },
     price: { label: "Giá Thuê", value: "Liên Hệ 0919 999 939" },
     description: "Quý khách có nhu cầu thuê <strong>diện tích linh hoạt</strong> hoặc <strong>toàn bộ sàn</strong>, vui lòng liên hệ chúng tôi để được hỗ trợ.",
     imageSrc: "/images/BV-tang24.png",
@@ -47,8 +47,8 @@ export const floorPlansData = [
     status: "Còn Trống",
     title: "MẶT BẰNG TẦNG 5",
     heroTitle: "Mặt Bằng Tầng 5",
-    area: { icon: Maximize2, label: "Diện Tích Cho Thuê", value: "480m²" },
-    subdivision: { icon: LayoutGrid, label: "Diện Tích Phân Khu", value: "Theo yêu cầu" },
+    area: { icon: "Maximize2", label: "Diện Tích Cho Thuê", value: "480m²" },
+    subdivision: { icon: "LayoutGrid", label: "Diện Tích Phân Khu", value: "Theo yêu cầu" },
     price: { label: "Giá Thuê", value: "Liên Hệ 0919 999 939" },
     description: "Quý khách có nhu cầu thuê <strong>diện tích linh hoạt</strong> hoặc <strong>toàn bộ sàn</strong>, vui lòng liên hệ chúng tôi để được hỗ trợ.",
     imageSrc: "/images/BV-tang5.png",
@@ -85,8 +85,8 @@ export const floorPlansData = [
     status: "Còn Trống",
     title: "MẶT BẰNG TẦNG 6",
     heroTitle: "Mặt Bằng Tầng 6",
-    area: { icon: Maximize2, label: "Diện Tích Cho Thuê", value: "455m²" },
-    subdivision: { icon: LayoutGrid, label: "Diện Tích Phân Khu", value: "Theo yêu cầu" },
+    area: { icon: "Maximize2", label: "Diện Tích Cho Thuê", value: "455m²" },
+    subdivision: { icon: "LayoutGrid", label: "Diện Tích Phân Khu", value: "Theo yêu cầu" },
     price: { label: "Giá Thuê", value: "Liên Hệ 0919 999 939" },
     description: "Quý khách có nhu cầu thuê <strong>diện tích linh hoạt</strong> hoặc <strong>toàn bộ sàn</strong>, vui lòng liên hệ chúng tôi để được hỗ trợ.",
     imageSrc: "/images/BV-tang6.png",
@@ -133,8 +133,8 @@ export type FloorPlanDataType = {
   status: string;
   title: string;
   heroTitle: string;
-  area: { icon: LucideIcon; label: string; value: string };
-  subdivision: { icon: LucideIcon; label: string; value: string };
+  area: { icon: string; label: string; value: string };
+  subdivision: { icon: string; label: string; value: string };
   price: { label: string; value: string };
   description?: string;
   imageSrc: string;

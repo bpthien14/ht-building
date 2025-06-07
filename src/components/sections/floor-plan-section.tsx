@@ -6,9 +6,13 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Badge } from '@/components/ui/badge';
 import { floorPlansData, FloorPlanDataType } from '@/data/floorPlansData';
 import React, { useState } from 'react';
+import { Maximize2, LayoutGrid } from 'lucide-react';
+
+const iconMap: Record<string, any> = { Maximize2, LayoutGrid };
 
 const FloorPlanSection = () => {
-  const currentFloorPlans: FloorPlanDataType[] = floorPlansData;
+  // Ép kiểu tạm thời để tránh lỗi type do icon giờ là string
+  const currentFloorPlans = floorPlansData as any[];
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
 
   const handleTabChange = (tabValue: string) => {
@@ -102,14 +106,18 @@ const FloorPlanSection = () => {
                           />
                         </div>
                         <div className="flex items-center gap-4 mb-2 justify-center md:justify-start">
-                          {plan.area?.icon && <plan.area.icon className="h-6 w-6 mr-3 text-[#222]" />}
+                          {plan.area?.icon && iconMap[plan.area.icon] && (
+                            React.createElement(iconMap[plan.area.icon], { className: "h-6 w-6 mr-3 text-[#222]" })
+                          )}
                           <div>
                             <div className="text-lg text-[#222] font-normal" >{plan.area?.label}</div>
                             <div className="text-2xl font-bold text-[#222]" >{plan.area?.value}</div>
                           </div>
                         </div>
                         <div className="flex items-center gap-4 mb-2 justify-center md:justify-start">
-                          {plan.subdivision?.icon && <plan.subdivision.icon className="h-6 w-6 mr-3 text-[#222]" />}
+                          {plan.subdivision?.icon && iconMap[plan.subdivision.icon] && (
+                            React.createElement(iconMap[plan.subdivision.icon], { className: "h-6 w-6 mr-3 text-[#222]" })
+                          )}
                           <div>
                             <div className="text-lg text-[#222] font-normal">{plan.subdivision?.label}</div>
                             <div className="text-2xl font-bold text-[#222]">{plan.subdivision?.value}</div>

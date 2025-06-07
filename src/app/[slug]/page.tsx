@@ -11,6 +11,7 @@ import { DollarSign, LucideIcon } from 'lucide-react';
 import { Metadata, ResolvingMetadata } from 'next';
 
 import ContactSection from '@/components/sections/contact-section';
+import FloorPlanDetailClient from '@/components/ui/floor-plan-detail-client';
 
 // Type để xử lý các item có hoặc không có icon
 type ItemWithIcon = { icon: LucideIcon; label: string; value: string };
@@ -107,98 +108,12 @@ const FloorPlanDetailPage = async ({ params: paramsPromise }: FloorPlanDetailPro
           </div>
         </section>
 
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Section 2: Floor Plan Details */}
-          <section className="py-16 md:py-24 bg-white">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid md:grid-cols-2 gap-x-12 gap-y-10 items-start">
-                {/* Left Column: Info */}
-                <div className="flex flex-col items-start">
-                  <Badge className="bg-slate-700 hover:bg-slate-700 text-white px-4 py-1.5 text-lg font-semibold rounded-md mb-5">
-                    {plan.status}
-                  </Badge>
-                  <h2 className="text-3xl sm:text-4xl font-semibold text-slate-800 mb-6">
-                    {plan.title}
-                  </h2>
-
-                  <div className="space-y-5 mb-8 w-full text-lg">
-                    {[plan.area, plan.subdivision, plan.price].map(item => (
-                      item && (
-                        <div key={item.label} className="flex items-start text-slate-700">
-                          {hasIcon(item) 
-                            ? React.createElement(item.icon, {
-                                className: "h-6 w-6 mr-4 text-slate-500 flex-shrink-0 mt-1"
-                              })
-                            : <DollarSign className="h-6 w-6 mr-4 text-slate-500 flex-shrink-0 mt-1" />
-                          }
-                          <div>
-                            <p className="text-slate-600">{item.label}</p>
-                            <p className="font-bold text-xl text-slate-800">{item.value}</p>
-                          </div>
-                        </div>
-                      )
-                    ))}
-                  </div>
-                  {plan.description && (
-                    <p 
-                      className="text-slate-600 leading-relaxed mb-8"
-                      dangerouslySetInnerHTML={{ __html: plan.description }}
-                    />
-                  )}
-                </div>
-
-                {/* Right Column: Image */}
-                <div className="relative aspect-[4/5] w-full mx-auto bg-white p-3 sm:p-4 rounded-lg border border-slate-200 shadow-sm">
-                  <Image
-                    src={plan.imageSrc}
-                    alt={plan.imageAlt}
-                    fill
-                    className="object-contain rounded-md"
-                    priority
-                  />
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Section 3: Sub-sections / Phân Khu (if any) */}
-          {plan.subSections && plan.subSections.length > 0 && (
-            <section className="py-16 md:py-24 bg-white">
-              <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 text-center mb-12 md:mb-16">
-                  Phân Khu Cho Thuê
-                </h2>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {plan.subSections.map((sub, index) => (
-                    <Card key={index} className="overflow-hidden shadow-none border-none hover:shadow-lg transition-shadow duration-300 bg-[#F8F4EF] rounded-lg">
-                      <div className="relative aspect-video w-full bg-white p-2 border-b border-slate-200">
-                        <Image 
-                          src={sub.imageSrc || plan.imageSrc}
-                          alt={sub.imageAlt}
-                          fill
-                          className="object-contain"
-                          style={{ backgroundColor: '#F8F4EF' }}
-                        />
-                      </div>
-                      <CardContent className="p-4 text-center">
-                        <h3 className="text-3xl font-semibold text-slate-800 mb-2">{sub.title}</h3>
-                        <Badge className="mb-3 bg-slate-700 text-white text-xs px-3 py-1 font-semibold rounded-full inline-block">
-                          {sub.status}
-                        </Badge>
-                        <p className="text-base text-slate-600">
-                        <span className="font-bold text-slate-800"> Giá: </span> {sub.price}
-                        </p>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              </div>
-            </section>
-          )}
+          <FloorPlanDetailClient plan={plan} />
+         
 
           {/* Section 4: Contact Form (Reused/Adapted from homepage) */}
           <ContactSection />
-        </div>
+
       </main>
       
       <Footer />
