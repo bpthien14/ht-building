@@ -2,12 +2,9 @@ import React from 'react';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { floorPlansData } from '@/data/floorPlansData';
-import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
-import { DollarSign, LucideIcon } from 'lucide-react';
+import { LucideIcon } from 'lucide-react';
 import { Metadata, ResolvingMetadata } from 'next';
 
 import ContactSection from '@/components/sections/contact-section';
