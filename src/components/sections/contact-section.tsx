@@ -17,7 +17,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+        <div className="grid md:grid-cols-12 gap-4 md:gap-12 items-start">
           <div 
             className="md:col-span-5 lg:col-span-5 flex flex-col" 
             style={{ fontFamily: 'var(--font-montserrat)' }}
@@ -26,10 +26,10 @@ const ContactSection = () => {
                 <div className="absolute top-3 left-0 w-full h-2/3 bg-white pr-5">
                     <div className="w-full h-full bg-[#4169aa]"/>
                 </div>
-                <div className="px-10 py-10 rounded-tr-xl rounded-tl-xl rounded-br-2xl text-white z-0 h-auto bg-gradient-to-r from-[#4169aa] to-[#1a2a44]">
+                <div className="px-10 py-8 sm:py-10 rounded-tr-xl rounded-tl-xl rounded-br-2xl text-white z-0 h-auto bg-gradient-to-r from-[#4169aa] to-[#1a2a44]">
                     <span className="text-2xl sm:text-3xl lg:text-4xl leading-tight">Liên hệ thuê văn phòng</span>
                 </div>
-                <div className="px-7 py-8 rounded-tr-2xl rounded-tl-4xl bg-white z-10 shadow-none h-auto">
+                <div className="px-7 py-6 sm:py-8 rounded-tr-2xl rounded-tl-4xl bg-white z-10 shadow-none h-auto">
                     <p className="text-slate-600 mb-3 text-base sm:text-lg">
                         Để nhận thông tin chi tiết, vui lòng điền thông tin đăng ký tư vấn hoặc liên hệ trực tiếp:
                     </p>
@@ -42,7 +42,7 @@ const ContactSection = () => {
           </div>
 
           <div className="md:col-span-7 lg:col-span-7" style={{ fontFamily: 'var(--font-montserrat)' }}>
-            <UICard className="p-6 sm:p-8 lg:p-10 shadow-none border-none bg-background">
+            <UICard className="p-6 sm:p-8 lg:p-10 mt-0 shadow-none border-none bg-background">
               <form className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-1.5">
