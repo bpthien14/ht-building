@@ -4,15 +4,11 @@ import Footer from '@/components/layout/footer';
 import { floorPlansData } from '@/data/floorPlansData';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { LucideIcon } from 'lucide-react';
 import { Metadata, ResolvingMetadata } from 'next';
 
 import ContactSection from '@/components/sections/contact-section';
 import FloorPlanDetailClient from '@/components/ui/floor-plan-detail-client';
 
-// Type để xử lý các item có hoặc không có icon
-type ItemWithIcon = { icon: LucideIcon; label: string; value: string };
-type ItemWithoutIcon = { label: string; value: string };
 
 interface FloorPlanDetailProps {
   params: Promise<{ slug: string }>;
