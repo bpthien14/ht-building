@@ -85,7 +85,7 @@ const FloorPlanSection = () => {
                       style={{ fontFamily: 'Montserrat, Raleway, Arial, sans-serif' }}
                     >
                       {/* Left Content (Mobile: căn giữa, md: text-left) */}
-                      <div className="flex-1 min-w-[320px] max-w-[480px] flex flex-col gap-4 md:gap-8 items-center md:items-start text-center md:text-left">
+                      <div className="flex-1 w-full md:min-w-[320px] max-w-full md:max-w-[480px] flex flex-col gap-4 md:gap-8 items-center md:items-start text-center md:text-left">
                         <Badge className="bg-[#303846] text-white px-2 py-0.5 text-sm font-semibold rounded mb-1">
                           {plan.status}
                         </Badge>
@@ -102,7 +102,7 @@ const FloorPlanSection = () => {
                             alt={plan.imageAlt}
                             width={320}
                             height={422}
-                            className="rounded-[3px] w-full max-w-[320px] h-auto object-contain border border-[#000000]"
+                            className="rounded-[3px] w-full max-w-full h-auto object-contain border border-[#000000]"
                             style={{ aspectRatio: '476/628' }}
                           />
                         </div>
@@ -121,12 +121,12 @@ const FloorPlanSection = () => {
                           )}
                           <div>
                             <div className="text-lg text-[#222] font-normal">{plan.subdivision?.label}</div>
-                            <div className="text-2xl font-bold text-[#222]">{plan.subdivision?.value}</div>
+                            <div className="text-2xl font-bold text-[#222] whitespace-nowrap">{plan.subdivision?.value}</div>
                           </div>
                         </div>
                         <Link
                           href={`/${plan.tabValue}`}
-                          className="bg-[#303846] text-white rounded-[8px] px-10 py-4 text-[24px] font-medium w-fit mt-6 shadow block text-center transition-all duration-200 ease-in-out hover:bg-[#222] hover:scale-[1.04] hover:shadow-xl focus-visible:outline-none"
+                          className="bg-[#303846] text-white rounded-[8px] px-6 py-3 text-base sm:text-lg md:text-2xl font-medium w-full max-w-xs mx-auto mt-6 shadow block text-center transition-all duration-200 ease-in-out hover:bg-[#222] hover:scale-[1.04] hover:shadow-xl focus-visible:outline-none"
                           style={{ fontFamily: 'Montserrat', fontWeight: 500, lineHeight: '1.5em', boxShadow: '0px 1px 2px 0px rgba(0,0,0,0.05)' }}
                         >
                           Xem Chi Tiết
@@ -134,13 +134,13 @@ const FloorPlanSection = () => {
                         {/* Hình ảnh tầng ở desktop sẽ nằm bên phải, mobile đã hiển thị phía trên */}
                       </div>
                       {/* Right Image (ẩn ở mobile, chỉ hiện ở md trở lên) */}
-                      <div className="flex-1 justify-center items-center min-w-[320px] max-w-[476px] hidden md:flex">
+                      <div className="flex-1 w-full md:min-w-[320px] max-w-full md:max-w-[476px] justify-center items-center hidden md:flex">
                         <Image
                           src={plan.imageSrc}
                           alt={plan.imageAlt}
                           width={476}
                           height={628}
-                          className="rounded-[3px] w-full max-w-[476px] h-auto object-contain border border-[#000000]"
+                          className="rounded-[3px] w-full max-w-full md:max-w-[476px] h-auto object-contain border border-[#000000]"
                           style={{ aspectRatio: '476/628' }}
                         />
                       </div>
