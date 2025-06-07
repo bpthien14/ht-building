@@ -5,15 +5,15 @@ import FloorPlanSubImage from '@/components/ui/floor-plan-sub-image';
 import { Badge } from '@/components/ui/badge';
 import { DollarSign, LucideIcon, Maximize2, LayoutGrid } from 'lucide-react';
 import { Lightbox } from '@/components/ui/lightbox';
+import type { FloorPlanDataType, SubSectionType } from '@/data/floorPlansData';
 
 interface FloorPlanDetailClientProps {
-  plan: any;
+  plan: FloorPlanDataType;
 }
 
 type ItemWithIcon = { icon: LucideIcon; label: string; value: string };
 type ItemWithoutIcon = { label: string; value: string };
 type FloorPlanItem = ItemWithIcon | ItemWithoutIcon;
-const hasIcon = (item: FloorPlanItem): item is ItemWithIcon => 'icon' in item;
 
 const iconMap: Record<string, LucideIcon> = { Maximize2, LayoutGrid };
 

@@ -1,6 +1,3 @@
-import { Maximize2, LayoutGrid } from 'lucide-react';
-import type { LucideIcon } from 'lucide-react';
-
 export const floorPlansData = [
   {
     id: "mat-bang-tang-2-4", // Thêm ID để dễ dàng tìm kiếm, cũng có thể dùng tabValue
