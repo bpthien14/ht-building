@@ -13,7 +13,6 @@ import FloorPlanDetailClient from '@/components/ui/floor-plan-detail-client';
 // Type để xử lý các item có hoặc không có icon
 type ItemWithIcon = { icon: LucideIcon; label: string; value: string };
 type ItemWithoutIcon = { label: string; value: string };
-type FloorPlanItem = ItemWithIcon | ItemWithoutIcon;
 
 interface FloorPlanDetailProps {
   params: Promise<{ slug: string }>;

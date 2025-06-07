@@ -50,7 +50,7 @@ const FloorPlanDetailClient = ({ plan }: FloorPlanDetailClientProps) => {
               <div className="space-y-5 mb-8 w-full text-lg">
                 {[plan.area, plan.subdivision, plan.price].map((item) => {
                   const isIconItem = (it: unknown): it is { icon: string; label: string; value: string } =>
-                    typeof it === 'object' && it !== null && 'icon' in it && typeof (it as any).icon === 'string';
+                    typeof it === 'object' && it !== null && 'icon' in it && typeof (it as Record<string, unknown>).icon === 'string';
                   return item && (
                     <div key={item.label} className="flex items-start text-slate-700">
                       {isIconItem(item) && item.icon && iconMap[item.icon]
