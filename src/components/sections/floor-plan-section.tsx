@@ -7,12 +7,6 @@ import { Badge } from '@/components/ui/badge';
 import { floorPlansData, FloorPlanDataType } from '@/data/floorPlansData';
 import React, { useState } from 'react';
 
-interface DetailListItem {
-  icon?: React.ElementType;
-  label: string;
-  value: string;
-}
-
 const FloorPlanSection = () => {
   const currentFloorPlans: FloorPlanDataType[] = floorPlansData;
   const [currentTabIndex, setCurrentTabIndex] = useState(0);
@@ -71,7 +65,7 @@ const FloorPlanSection = () => {
                 transform: `translateX(-${currentTabIndex * (100 / (currentFloorPlans.length || 1))}%)`,
               }}
             >
-              {(currentFloorPlans || []).map((plan: FloorPlanDataType, index: number) => (
+              {(currentFloorPlans || []).map((plan: FloorPlanDataType) => (
                 <TabsContent 
                   forceMount
                   key={plan.tabValue} 
@@ -98,9 +92,11 @@ const FloorPlanSection = () => {
                         </h3>
                         {/* Hình ảnh tầng nằm ngay dưới tiêu đề ở mobile */}
                         <div className="w-full flex justify-center md:hidden mb-4">
-                          <img
+                          <Image
                             src={plan.imageSrc}
                             alt={plan.imageAlt}
+                            width={320}
+                            height={422}
                             className="rounded-[3px] w-full max-w-[320px] h-auto object-contain border border-[#000000]"
                             style={{ aspectRatio: '476/628' }}
                           />
@@ -130,9 +126,11 @@ const FloorPlanSection = () => {
                       </div>
                       {/* Right Image (ẩn ở mobile, chỉ hiện ở md trở lên) */}
                       <div className="flex-1 justify-center items-center min-w-[320px] max-w-[476px] hidden md:flex">
-                        <img
+                        <Image
                           src={plan.imageSrc}
                           alt={plan.imageAlt}
+                          width={476}
+                          height={628}
                           className="rounded-[3px] w-full max-w-[476px] h-auto object-contain border border-[#000000]"
                           style={{ aspectRatio: '476/628' }}
                         />
