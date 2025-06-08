@@ -20,9 +20,9 @@ export const floorPlansData = [
         imageAlt: "Bản vẽ khu diện tích 47m² tầng 2-4 tòa nhà H&T Building",
         images: [
           { src: "/images/BV-tang24-phanKhu1.png", alt: "Bản vẽ khu diện tích 47m² tầng 2-4 tòa nhà H&T Building" },
-          { src: "/images/47m-tang24-anh-thuc-te1.jpg", alt: "Bản vẽ khu diện tích 47m² tầng 2-4 tòa nhà H&T Building" },
-          { src: "/images/47m-tang24-anh-thuc-te2.jpg", alt: "Bản vẽ khu diện tích 47m² tầng 2-4 tòa nhà H&T Building" },
-          { src: "/images/47m-tang24-anh-thuc-te3.jpg", alt: "Bản vẽ khu diện tích 47m² tầng 2-4 tòa nhà H&T Building" },
+          { src: "/images/47m-tang24-anh-thuc-te1.jpg", alt: "Hình ảnh thực tế khu diện tích 47m² tầng 2-4 tòa nhà H&T Building" },
+          { src: "/images/47m-tang24-anh-thuc-te2.jpg", alt: "Hình ảnh thực tế khu diện tích 47m² tầng 2-4 tòa nhà H&T Building" },
+          { src: "/images/47m-tang24-anh-thuc-te3.jpg", alt: "Hình ảnh thực tế khu diện tích 47m² tầng 2-4 tòa nhà H&T Building" },
         ],
         status: "Còn Trống", 
         price: "Liên Hệ" 
@@ -33,9 +33,9 @@ export const floorPlansData = [
         imageAlt: "Bản vẽ khu diện tích 124m² tầng 2-4 tòa nhà H&T Building",
         images: [
           { src: "/images/BV-tang24-phanKhu2.png", alt: "Bản vẽ khu diện tích 124m² tầng 2-4 tòa nhà H&T Building" },
-          { src: "/images/124m-tang24-anh-thuc-te1.jpg", alt: "Bản vẽ khu diện tích 124m² tầng 2-4 tòa nhà H&T Building" },
-          { src: "/images/124m-tang24-anh-thuc-te2.jpg", alt: "Bản vẽ khu diện tích 124m² tầng 2-4 tòa nhà H&T Building" },
-          { src: "/images/124m-tang24-anh-thuc-te3.jpg", alt: "Bản vẽ khu diện tích 124m² tầng 2-4 tòa nhà H&T Building" },
+          { src: "/images/124m-tang24-anh-thuc-te1.jpg", alt: "Hình ảnh thực tế khu diện tích 124m² tầng 2-4 tòa nhà H&T Building" },
+          { src: "/images/124m-tang24-anh-thuc-te2.jpg", alt: "Hình ảnh thực tế khu diện tích 124m² tầng 2-4 tòa nhà H&T Building" },
+          { src: "/images/124m-tang24-anh-thuc-te3.jpg", alt: "Hình ảnh thực tế khu diện tích 124m² tầng 2-4 tòa nhà H&T Building" },
         ],
         status: "Còn Trống", 
         price: "Liên Hệ" 
@@ -76,9 +76,9 @@ export const floorPlansData = [
         imageAlt: "Bản vẽ khu diện tích 47m² tầng 5 tòa nhà H&T Building",
         images: [
           { src: "/images/BV-tang5-phanKhu1.png", alt: "Bản vẽ khu diện tích 47m² tầng 5 tòa nhà H&T Building" },
-          { src: "/images/47m-tang5-anh-thuc-te1.png", alt: "Bản vẽ khu diện tích 47m² tầng 5 tòa nhà H&T Building" },
-          { src: "/images/47m-tang5-anh-thuc-te2.png", alt: "Bản vẽ khu diện tích 47m² tầng 5 tòa nhà H&T Building" },
-          { src: "/images/47m-tang5-anh-thuc-te3.png", alt: "Bản vẽ khu diện tích 47m² tầng 5 tòa nhà H&T Building" },
+          { src: "/images/47m-tang5-anh-thuc-te1.png", alt: "Hình ảnh thực tế khu diện tích 98 và 148m² tầng 5 tòa nhà H&T Building" },
+          { src: "/images/47m-tang5-anh-thuc-te2.png", alt: "Hình ảnh thực tế khu diện tích 98 và 148m² tầng 5 tòa nhà H&T Building" },
+          { src: "/images/47m-tang5-anh-thuc-te3.png", alt: "Hình ảnh thực tế khu diện tích 98 và 148m² tầng 5 tòa nhà H&T Building" },
         ],
         status: "Còn Trống", 
         price: "Liên Hệ" 
@@ -89,8 +89,8 @@ export const floorPlansData = [
         imageAlt: "Bản vẽ khu diện tích 98m² tầng 5 tòa nhà H&T Building",
         images: [
           { src: "/images/BV-tang5-phanKhu2.png", alt: "Bản vẽ khu diện tích 98m² tầng 5 tòa nhà H&T Building" },
-          { src: "/images/98m-tang5-anh-thuc-te1.png", alt: "Bản vẽ khu diện tích 98m² tầng 5 tòa nhà H&T Building" },
-          { src: "/images/98m-tang5-anh-thuc-te2.png", alt: "Bản vẽ khu diện tích 98m² tầng 5 tòa nhà H&T Building" },
+          { src: "/images/98m-tang5-anh-thuc-te1.png", alt: "Hình ảnh thực tế khu diện tích 98 và 148m² tầng 5 tòa nhà H&T Building" },
+          { src: "/images/98m-tang5-anh-thuc-te2.png", alt: "Hình ảnh thực tế khu diện tích 98 và 148m² tầng 5 tòa nhà H&T Building" },
         ],
         status: "Còn Trống", 
         price: "Liên Hệ" 
@@ -101,9 +101,9 @@ export const floorPlansData = [
         imageAlt: "Bản vẽ khu diện tích 148m² tầng 5 tòa nhà H&T Building",
         images: [
           { src: "/images/BV-tang5-phanKhu3.png", alt: "Bản vẽ khu diện tích 148m² tầng 5 tòa nhà H&T Building" },
-          { src: "/images/148m-tang5-anh-thuc-te1.png", alt: "Bản vẽ khu diện tích 148m² tầng 5 tòa nhà H&T Building" },
-          { src: "/images/148m-tang5-anh-thuc-te2.png", alt: "Bản vẽ khu diện tích 148m² tầng 5 tòa nhà H&T Building" },
-          { src: "/images/148m-tang5-anh-thuc-te3.png", alt: "Bản vẽ khu diện tích 148m² tầng 5 tòa nhà H&T Building" },
+          { src: "/images/148m-tang5-anh-thuc-te1.png", alt: "Hình ảnh thực tế khu diện tích 98 và 148m² tầng 5 tòa nhà H&T Building" },
+          { src: "/images/148m-tang5-anh-thuc-te2.png", alt: "Hình ảnh thực tế khu diện tích 98 và 148m² tầng 5 tòa nhà H&T Building" },
+          { src: "/images/148m-tang5-anh-thuc-te3.png", alt: "Hình ảnh thực tế khu diện tích 98 và 148m² tầng 5 tòa nhà H&T Building" },
         ],
         status: "Còn Trống", 
         price: "Liên Hệ" 
@@ -131,9 +131,9 @@ export const floorPlansData = [
         imageAlt: "Bản vẽ khu diện tích 47m² tầng 6 tòa nhà H&T Building",
         images: [
           { src: "/images/BV-tang6-phanKhu1.png", alt: "Bản vẽ khu diện tích 47m² tầng 6 tòa nhà H&T Building" },
-          { src: "/images/47m-tang6-anh-thuc-te1.png", alt: "Bản vẽ khu diện tích 47m² tầng 6 tòa nhà H&T Building" },
-          { src: "/images/47m-tang6-anh-thuc-te2.png", alt: "Bản vẽ khu diện tích 47m² tầng 6 tòa nhà H&T Building" },
-          { src: "/images/47m-tang6-anh-thuc-te3.png", alt: "Bản vẽ khu diện tích 47m² tầng 6 tòa nhà H&T Building" },
+          { src: "/images/47m-tang6-anh-thuc-te1.png", alt: "Hình ảnh thực tế khu diện tích 47m² tầng 6 tòa nhà H&T Building" },
+          { src: "/images/47m-tang6-anh-thuc-te2.png", alt: "Hình ảnh thực tế khu diện tích 47m² tầng 6 tòa nhà H&T Building" },
+          { src: "/images/47m-tang6-anh-thuc-te3.png", alt: "Hình ảnh thực tế khu diện tích 47m² tầng 6 tòa nhà H&T Building" },
         ],
         status: "Còn Trống", 
         price: "Liên Hệ" 
@@ -144,8 +144,8 @@ export const floorPlansData = [
         imageAlt: "Bản vẽ khu diện tích 98m² tầng 6 tòa nhà H&T Building",
         images: [
           { src: "/images/BV-tang6-phanKhu2.png", alt: "Bản vẽ khu diện tích 98m² tầng 6 tòa nhà H&T Building" },
-          { src: "/images/98m-tang6-anh-thuc-te1.png", alt: "Bản vẽ khu diện tích 98m² tầng 6 tòa nhà H&T Building" },
-          { src: "/images/98m-tang6-anh-thuc-te2.png", alt: "Bản vẽ khu diện tích 98m² tầng 6 tòa nhà H&T Building" },
+          { src: "/images/98m-tang6-anh-thuc-te1.png", alt: "Hình ảnh thực tế khu diện tích 98m² tầng 6 tòa nhà H&T Building" },
+          { src: "/images/98m-tang6-anh-thuc-te2.png", alt: "Hình ảnh thực tế khu diện tích 98m² tầng 6 tòa nhà H&T Building" },
         ],
         status: "Còn Trống", 
         price: "Liên Hệ" 
@@ -156,7 +156,7 @@ export const floorPlansData = [
         imageAlt: "Bản vẽ khu diện tích 105m² tầng 6 tòa nhà H&T Building",
         images: [
           { src: "/images/BV-tang6-phanKhu3.png", alt: "Bản vẽ khu diện tích 105m² tầng 6 tòa nhà H&T Building" },
-          { src: "/images/105m-tang6-anh-thuc-te1.png", alt: "Bản vẽ khu diện tích 105m² tầng 6 tòa nhà H&T Building" },
+          { src: "/images/105m-tang6-anh-thuc-te1.png", alt: "Hình ảnh thực tế khu diện tích 105m² tầng 6 tòa nhà H&T Building" },
         ],
         status: "Còn Trống", 
         price: "Liên Hệ" 

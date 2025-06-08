@@ -68,8 +68,7 @@ const MapSection = () => {
                 <Clock className="w-6 h-6 text-[#4169aa] flex-shrink-0 mt-1" />
                 <div>
                   <div className="text-base text-[#303846] font-bold mb-1">Giờ làm việc</div>
-                  <div className="text-sm text-[#222] leading-snug">Thứ 2 - Thứ 6: 8:00 - 17:30</div>
-                  <div className="text-xs text-[#303846]">Thứ 7: 8:00 - 12:00</div>
+                  <div className="text-sm text-[#222] leading-snug">Thứ 2 - Thứ 7: 7:00 - 17:00</div>
                 </div>
               </div>
             </div>
