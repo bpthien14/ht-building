@@ -5,6 +5,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Button as UIButton } from '@/components/ui/button';
 import { Card as UICard } from '@/components/ui/card';
+import { useState } from 'react';
 
 // Bạn có thể thêm props cho component này nếu cần tùy chỉnh nội dung
 // interface ContactSectionProps {
@@ -13,6 +14,14 @@ import { Card as UICard } from '@/components/ui/card';
 // }
 
 const ContactSection = () => {
+  const [showToast, setShowToast] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setShowToast(true);
+    e.currentTarget.reset();
+    setTimeout(() => setShowToast(false), 4000);
+  };
 
   return (
     <section id="contact" className="py-16 md:py-24 bg-white">
@@ -43,7 +52,13 @@ const ContactSection = () => {
 
           <div className="md:col-span-7 lg:col-span-7" style={{ fontFamily: 'var(--font-montserrat)' }}>
             <UICard className="p-6 sm:p-8 lg:p-10 mt-0 shadow-none border-none bg-background">
-              <form className="space-y-6">
+              <form   
+                action="https://formspree.io/f/mwpbvgaa"
+                method="POST"
+                className="space-y-6"
+                onSubmit={handleSubmit}
+              >
+                <input type="hidden" name="_next" value="https://htbuilding.com/thank-you" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-1.5">
                     <Label htmlFor="contact-name" className="font-medium text-3A3C40">Họ & Tên</Label>
@@ -71,6 +86,42 @@ const ContactSection = () => {
                   </UIButton>
                 </div>
               </form>
+              {showToast && (
+                <>
+                  <style>{`
+                    @keyframes fadeInOut {
+                      0% { opacity: 0; transform: translateY(20px); }
+                      10% { opacity: 1; transform: translateY(0); }
+                      90% { opacity: 1; transform: translateY(0); }
+                      100% { opacity: 0; transform: translateY(20px); }
+                    }
+                  `}</style>
+                  <div
+                    style={{
+                      animation: 'fadeInOut 4s both',
+                      position: 'fixed',
+                      top: '1.5rem',
+                      right: '1.5rem',
+                      left: 'auto',
+                      transform: 'none',
+                      background: '#16a34a',
+                      color: 'white',
+                      padding: '0.75rem 1.5rem',
+                      borderRadius: '0.5rem',
+                      boxShadow: '0 4px 24px 0 rgba(0,0,0,0.15)',
+                      zIndex: 50,
+                      fontSize: '1rem',
+                      fontWeight: 500,
+                      minWidth: '200px',
+                      maxWidth: '90vw',
+                      textAlign: 'center',
+                      wordBreak: 'break-word',
+                    }}
+                  >
+                    Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi sớm nhất.
+                  </div>
+                </>
+              )}
             </UICard>
           </div>
         </div>

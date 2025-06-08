@@ -102,7 +102,6 @@ const FloorPlanDetailClient = ({ plan }: FloorPlanDetailClientProps) => {
                 <FloorPlanSubImage
                   key={idx}
                   images={sub.images || [{ src: sub.imageSrc, alt: sub.imageAlt }]}
-                  index={0}
                   onOpen={(imgIdx) => openSubSectionLightbox(idx, imgIdx)}
                   title={sub.title}
                   status={sub.status}
