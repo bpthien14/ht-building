@@ -6,14 +6,13 @@ import { Badge } from '@/components/ui/badge';
 
 interface FloorPlanSubImageProps {
   images: { src: string; alt: string }[];
-  index: number;
   onOpen: (idx: number) => void;
   title: string;
   status: string;
   price: string;
 }
 
-const FloorPlanSubImage = ({ images, index, onOpen, title, status, price }: FloorPlanSubImageProps) => {
+const FloorPlanSubImage = ({ images, onOpen, title, status, price }: FloorPlanSubImageProps) => {
   // State cho index ảnh hiện tại
   const [currentImgIdx, setCurrentImgIdx] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);

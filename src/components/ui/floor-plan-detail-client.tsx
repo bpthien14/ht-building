@@ -5,7 +5,7 @@ import FloorPlanSubImage from '@/components/ui/floor-plan-sub-image';
 import { Badge } from '@/components/ui/badge';
 import { DollarSign, LucideIcon, Maximize2, LayoutGrid } from 'lucide-react';
 import { Lightbox } from '@/components/ui/lightbox';
-import type { FloorPlanDataType, SubSectionType } from '@/data/floorPlansData';
+import type { FloorPlanDataType } from '@/data/floorPlansData';
 
 interface FloorPlanDetailClientProps {
   plan: FloorPlanDataType;
