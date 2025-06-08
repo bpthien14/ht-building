@@ -14,10 +14,10 @@ const Footer = () => {
             </Link>
           </div>
           <p className="text-md text-[#f8f1e9] mb-2">
-            <span className="font-semibold">Địa chỉ:</span> 204 - 204A Trần Hưng Đạo, TP Long Xuyên, An Giang
+            <span className="font-semibold">Địa chỉ:</span>  204 - 204A Trần Hưng Đạo, P. Mỹ Bình, TP Long Xuyên, An Giang
           </p>
           <p className="text-md text-[#f8f1e9]">
-            <span className="font-semibold">Email:</span> htbuilding@gmail.com | <span className="font-semibold">SĐT:</span> 0919 999 939
+            <span className="font-semibold">Email:</span> htbuilding.contact@gmail.com | <span className="font-semibold">SĐT:</span> 0919 999 939
           </p>
         </div>
         <div className="mt-10 border-t border-[#f8f1e9]/30 pt-8 text-center">
