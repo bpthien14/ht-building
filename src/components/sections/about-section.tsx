@@ -117,7 +117,7 @@ const AboutSection = () => {
               Tọa lạc tại <strong className="text-foreground">204-204A Trần Hưng Đạo</strong>, P. Mỹ Bình, trung tâm TP. Long Xuyên – Trục tài chính sôi động, tập trung nhiều ngân hàng lớn, gần Vincom Plaza, trường học, khu hành chính và các tuyến giao thông huyết mạch.
             </p>
             <p className="text-[#000000] text-base sm:text-lg md:text-xl lg:text-[22px] xl:text-[25px] leading-relaxed text-justify">
-              Không gian hiện đại, <strong className="text-foreground"> diện tích linh hoạt từ 49-485m²</strong> – phù hợp cho cả doanh nghiệp vừa, nhỏ và quy mô lớn. <strong className="text-foreground">Giá thuê hợp lý, hạ tầng hoàn chỉnh, dịch vụ đầy đủ</strong> – lựa chọn hàng đầu cho doanh nghiệp đang tìm kiếm không gian làm việc chuyên nghiệp và dễ dàng mở rộng.
+              Không gian hiện đại, <strong className="text-foreground"> diện tích linh hoạt từ 47-485m²</strong> – phù hợp cho cả doanh nghiệp vừa, nhỏ và quy mô lớn. <strong className="text-foreground">Giá thuê hợp lý, hạ tầng hoàn chỉnh, dịch vụ đầy đủ</strong> – lựa chọn hàng đầu cho doanh nghiệp đang tìm kiếm không gian làm việc chuyên nghiệp và dễ dàng mở rộng.
             </p>
           </div>
         </div>
