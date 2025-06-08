@@ -16,11 +16,28 @@ import { useState } from 'react';
 const ContactSection = () => {
   const [showToast, setShowToast] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setShowToast(true);
-    e.currentTarget.reset();
-    setTimeout(() => setShowToast(false), 4000);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    try {
+      const res = await fetch('https://formspree.io/f/mwpbvgaa', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+        },
+        body: formData,
+      });
+      if (res.ok) {
+        setShowToast(true);
+        form.reset();
+        setTimeout(() => setShowToast(false), 4000);
+      } else {
+        alert('Gửi không thành công. Vui lòng thử lại!');
+      }
+    } catch (err) {
+      alert('Có lỗi xảy ra. Vui lòng thử lại!');
+    }
   };
 
   return (
@@ -53,12 +70,9 @@ const ContactSection = () => {
           <div className="md:col-span-7 lg:col-span-7" style={{ fontFamily: 'var(--font-montserrat)' }}>
             <UICard className="p-6 sm:p-8 lg:p-10 mt-0 shadow-none border-none bg-background">
               <form   
-                action="https://formspree.io/f/mwpbvgaa"
-                method="POST"
                 className="space-y-6"
                 onSubmit={handleSubmit}
               >
-                <input type="hidden" name="_next" value="https://htbuilding.com/thank-you" />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div className="space-y-1.5">
                     <Label htmlFor="contact-name" className="font-medium text-3A3C40">Họ & Tên</Label>
