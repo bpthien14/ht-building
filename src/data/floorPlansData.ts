@@ -76,9 +76,9 @@ export const floorPlansData = [
         imageAlt: "Bản vẽ khu diện tích 47m² tầng 5 tòa nhà H&T Building",
         images: [
           { src: "/images/BV-tang5-phanKhu1.png", alt: "Bản vẽ khu diện tích 47m² tầng 5 tòa nhà H&T Building" },
-          { src: "/images/47m-tang5-anh-thuc-te1.jpg", alt: "Bản vẽ khu diện tích 47m² tầng 5 tòa nhà H&T Building" },
-          { src: "/images/47m-tang5-anh-thuc-te2.jpg", alt: "Bản vẽ khu diện tích 47m² tầng 5 tòa nhà H&T Building" },
-          { src: "/images/47m-tang5-anh-thuc-te3.jpg", alt: "Bản vẽ khu diện tích 47m² tầng 5 tòa nhà H&T Building" },
+          { src: "/images/47m-tang5-anh-thuc-te1.png", alt: "Bản vẽ khu diện tích 47m² tầng 5 tòa nhà H&T Building" },
+          { src: "/images/47m-tang5-anh-thuc-te2.png", alt: "Bản vẽ khu diện tích 47m² tầng 5 tòa nhà H&T Building" },
+          { src: "/images/47m-tang5-anh-thuc-te3.png", alt: "Bản vẽ khu diện tích 47m² tầng 5 tòa nhà H&T Building" },
         ],
         status: "Còn Trống", 
         price: "Liên Hệ" 
