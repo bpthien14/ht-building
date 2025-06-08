@@ -20,7 +20,6 @@ const ContactSection = () => {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
-    try {
       const res = await fetch('https://formspree.io/f/mwpbvgaa', {
         method: 'POST',
         headers: {
@@ -35,9 +34,7 @@ const ContactSection = () => {
       } else {
         alert('Gửi không thành công. Vui lòng thử lại!');
       }
-    } catch (err) {
-      alert('Có lỗi xảy ra. Vui lòng thử lại!');
-    }
+
   };
 
   return (
